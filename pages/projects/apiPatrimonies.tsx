@@ -1,8 +1,6 @@
 import React from "react";
-import ApiPatrimonies from "../../src/pages/projects/ApiPatrimonies";
+import WebsitePatrimonies from "../../src/pages/projects/WebsitePatrimonies";
 
-const apiPatrimonies = () => {
-  return <ApiPatrimonies />;
-};
-
-export default apiPatrimonies;
+export default function websitePatrimonies() {
+  return <WebsitePatrimonies />;
+}

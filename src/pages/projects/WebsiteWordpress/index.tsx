@@ -1,13 +1,11 @@
 import React from "react";
-import HeaderProjects from "../../../components/HeaderProjects";
+import HeaderProjects from "../components/HeaderProjects";
 
-const WebsiteWordpress = () => {
+export default function WebsiteWordpress() {
   return (
     <>
       <HeaderProjects />
-      <h1>Projeto wordpress</h1>
+      <h1>Projeto api patrimonio</h1>
     </>
   );
-};
-
-export default WebsiteWordpress;
+}

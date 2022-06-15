@@ -1,8 +1,6 @@
 import React from "react";
 import Fipag from "../../../src/pages/projects/html/Fipag";
 
-const fipag = () => {
+export default function fipag() {
   return <Fipag />;
-};
-
-export default fipag;
+}

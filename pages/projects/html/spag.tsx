@@ -1,8 +1,6 @@
 import React from "react";
 import Spag from "../../../src/pages/projects/html/Spag";
 
-const spag = () => {
+export default function spag() {
   return <Spag />;
-};
-
-export default spag;
+}

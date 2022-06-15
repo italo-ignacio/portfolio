@@ -1,8 +1,6 @@
 import React from "react";
 import StockManager from "../../src/pages/projects/StockManager";
 
-const stockManager = () => {
+export default function stockManager() {
   return <StockManager />;
-};
-
-export default stockManager;
+}

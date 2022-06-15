@@ -21,7 +21,7 @@ export default function Header() {
         <Logo>
           <Link href="/">
             <a>
-              <Image src="/logo.jpg" width="80px" height="80px" alt="Logo" />
+              <Image src="/logo.jpg" width="60px" height="60px" alt="Logo" />
             </a>
           </Link>
         </Logo>

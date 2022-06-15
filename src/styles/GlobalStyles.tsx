@@ -9,8 +9,8 @@ export default createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        font-family:sans-serif; 
-     
+        font-family: 'Bitter', serif;
+        line-height: 1.5;
     }
     html,body,#root{
         height:100%;

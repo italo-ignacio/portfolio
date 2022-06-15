@@ -1,13 +1,11 @@
 import React from "react";
-import HeaderProjects from "../../../components/HeaderProjects";
+import HeaderProjects from "../components/HeaderProjects";
 
-const ApiPatrimonies = () => {
+export default function ApiPatrimonies() {
   return (
     <>
       <HeaderProjects />
       <h1>Projeto api patrimonio</h1>
     </>
   );
-};
-
-export default ApiPatrimonies;
+}

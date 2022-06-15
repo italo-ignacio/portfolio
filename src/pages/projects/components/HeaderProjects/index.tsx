@@ -12,7 +12,7 @@ export default function HeaderProjects() {
   };
   return (
     <>
-      <Container show={show}>
+      <Container>
         <MenuContent>
           <MenuLabel onClick={toggleMenu}>
             <FiMenu />

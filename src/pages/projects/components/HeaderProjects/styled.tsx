@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { primaryColor, linkColor } from "../../config/colors";
+import { primaryColor, linkColor } from "../../../../config/colors";
 
-interface StyledHeaderProps {
-  show: boolean;
-}
-export const Container = styled.header<StyledHeaderProps>`
+export const Container = styled.header`
   width: 100%;
   background: ${primaryColor};
   z-index: 9999;
