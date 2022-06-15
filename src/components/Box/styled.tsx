@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  secondaryDarkColor,
-  linkColor,
-  primaryDarkColor,
-  textColor,
-} from "../../config/colors";
+import { secondaryDarkColor, linkColor, textColor } from "../../config/colors";
 
 export const Container = styled.section`
   display: flex;
@@ -15,6 +10,7 @@ export const Container = styled.section`
   background-color: ${secondaryDarkColor};
   border-radius: 0.3rem;
   border: 0.3rem solid ${textColor};
+  min-width: 45%;
 
   div {
     display: block;
@@ -27,6 +23,8 @@ export const Container = styled.section`
     font-size: 26px;
     font-weight: bold;
     color: ${linkColor};
+
+    text-decoration: underline;
   }
 
   h2 {

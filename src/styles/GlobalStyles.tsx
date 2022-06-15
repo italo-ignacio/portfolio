@@ -1,5 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { primaryColor, primaryDarkColor, textColor } from "../config/colors";
+import {
+  linkColor,
+  primaryColor,
+  primaryDarkColor,
+  textColor,
+} from "../config/colors";
 
 export default createGlobalStyle`
     *{
@@ -33,7 +38,7 @@ export default createGlobalStyle`
     }
     a{
         text-decoration:none;
-        color:${primaryColor}
+        color:${linkColor}
     }
     ul{
         list-style:none;

@@ -10,31 +10,28 @@ export default function Personal() {
         <Box
           title="Este website"
           img="/nextjs.png"
-          desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
-        doloribus laudantium ipsa autem nobis animi excepturi doloremque
-        distinctio delectus officiis facere officia minus, quo similique ut est
-        velit."
+          ow=" "
+          fun="Aprendizagem: Next.js"
+          desc="Descrição: Site criado com o Framework Next.js para exibir meus projetos"
           link="https://github.com/itilocao/portfolio"
           a="Ver projeto no GitHub"
           target="blank"
         />
         <Box
-          title="Website de patrimônios"
+          title="Site de patrimônios"
           img="/logo-react-icon.png"
-          desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
-        doloribus laudantium ipsa autem nobis animi excepturi doloremque
-        distinctio delectus officiis facere officia minus, quo similique ut est
-        velit."
+          ow=""
+          fun="Aprendizagem: React"
+          desc="Descrição: Site criado com React para exibir os patrimônios e usuários cadastrados no banco de dados da API de patrimônios"
           link="/projects/websitePatrimonies"
           a="Ver projeto"
         />
         <Box
           title="API de patrimônios"
           img="/nodejs.png"
-          desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
-        doloribus laudantium ipsa autem nobis animi excepturi doloremque
-        distinctio delectus officiis facere officia minus, quo similique ut est
-        velit."
+          ow=""
+          fun="Aprendizagem: Node.js/Express.js"
+          desc="Descrição: API criada com NodeJs e ExpressJs para gerenciar os patrimônios e usuários que seram listado no Site de patrimônios"
           link="/projects/apiPatrimonies"
           a="Ver projeto"
         />

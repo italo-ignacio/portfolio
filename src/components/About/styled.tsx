@@ -35,6 +35,10 @@ export const ContainerAbout = styled.div`
     font-size: 32px;
     color: ${linkColor};
   }
+  a {
+    text-decoration: underline;
+    font-size: 16px;
+  }
   @media (max-width: 768px) {
     justify-content: left;
     margin-left: 0;

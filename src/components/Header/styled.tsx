@@ -11,26 +11,24 @@ export const Container = styled.header`
   position: fixed;
 
   @media (max-width: 768px) {
-    padding-left: 1rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
     display: grid;
     grid-template-columns: auto;
-    grid-template-areas: "menu logo tel";
-    text-align: center;
-    justify-content: space-around;
+    grid-template-areas: "logo tel menu";
+
+    justify-content: space-between;
   }
 `;
 
 export const Logo = styled.div`
   @media (max-width: 768px) {
-    display: flex;
+    display: grid;
     grid-area: logo;
-
-    padding-left: 4rem;
   }
   margin-top: 3px;
   img {
     width: 7.5rem;
-
     padding: 0.5rem;
     border-radius: 50%;
   }
@@ -46,7 +44,7 @@ export const MenuContent = styled.div`
     display: flex;
     align-items: center;
     padding-top: 0.5rem;
-    position: fixed;
+    right: 0;
     grid-area: menu;
   }
 `;
@@ -98,7 +96,8 @@ export const Nav = styled.nav<StyledNavProps>`
     z-index: 4;
     background-color: ${primaryColor};
     top: 0;
-    left: 0;
+    right: 0;
+    text-align: center;
     width: 100%;
     height: 100%;
     padding-top: 6rem;
@@ -147,6 +146,7 @@ export const Nav2 = styled.nav`
   }
   @media (max-width: 768px) {
     grid-area: tel;
+    padding-right: 3rem;
     padding-top: 0.5rem;
     a {
       font-size: 2.5rem;

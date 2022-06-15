@@ -8,22 +8,20 @@ export default function Works() {
       <h2>Trabalhos</h2>
       <ContainerWorks>
         <Box
-          title="Website Wordpress"
+          title="Woocommerce + Wordpress"
           img="/wordpress.png"
-          desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
-        doloribus laudantium ipsa autem nobis animi excepturi doloremque
-        distinctio delectus officiis facere officia minus, quo similique ut est
-        velit."
+          ow="Empresa: Venda de familia e amigos"
+          fun="Função : Desenvolvedor"
+          desc="Descrição: Loja virtual  Woocommerce criada com o wordpress "
           link="/projects/websiteWordpress"
           a="Ver projeto"
         />
         <Box
           title="Gerenciador de estoque"
           img="/python.svg"
-          desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
-        doloribus laudantium ipsa autem nobis animi excepturi doloremque
-        distinctio delectus officiis facere officia minus, quo similique ut est
-        velit."
+          ow="Empresa: Venda de familia e amigos"
+          fun="Função: Desenvolvedor"
+          desc="Descrição: Programa para gerenciar estoque e vendas de produtos"
           link="/projects/stockManager"
           a="Ver projeto"
         />
