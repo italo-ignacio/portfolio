@@ -3,7 +3,7 @@ import { Body, Main } from "../components/styles.module/styles";
 import Headerhtml from "../components/Headerhtml";
 import { Container } from "./styled";
 
-const Tpag = () => {
+const Pag3 = () => {
   return (
     <Body id="top">
       <Main>
@@ -87,4 +87,4 @@ const Tpag = () => {
   );
 };
 
-export default Tpag;
+export default Pag3;

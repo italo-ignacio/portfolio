@@ -3,7 +3,7 @@ import { Body, Main } from "../components/styles.module/styles";
 import Headerhtml from "../components/Headerhtml";
 import { Container } from "./styled";
 
-const Fpag = () => {
+const Pag4 = () => {
   return (
     <Body id="top">
       <Main>
@@ -126,4 +126,4 @@ const Fpag = () => {
   );
 };
 
-export default Fpag;
+export default Pag4;

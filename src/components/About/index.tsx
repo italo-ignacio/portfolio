@@ -32,7 +32,7 @@ export default function About() {
       </ContainerAbout>
       <ContainerImage>
         <Image
-          src="/dogao.jpg"
+          src="/avatar.png"
           alt="Picture of the author"
           width={420}
           height={500}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Menu = styled.div`
+export const Menu = styled.div<StyledNavProps>`
   ul {
     list-style: none;
     background-color: black;
@@ -17,6 +17,14 @@ export const Menu = styled.div`
 
   ul li a:hover {
     color: red;
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      background-color: ${({ show }) => (show ? "black" : "transparent")};
+      border-bottom: 0.4rem solid black;
+      border-radius: ${({ show }) => (show ? "10px" : "0")};
+    }
   }
 `;
 interface StyledNavProps {

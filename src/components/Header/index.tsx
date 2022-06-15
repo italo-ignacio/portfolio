@@ -43,6 +43,18 @@ export default function Header({ project = false }) {
             </Nav>
           ) : (
             <Nav show={show}>
+              <Link href="/#top">
+                <a>Sobre mim</a>
+              </Link>
+              <Link href="/#works">
+                <a>Trabalhos</a>
+              </Link>
+              <Link href="/#personalProjects">
+                <a>Projetos pessoais</a>
+              </Link>
+              <Link href="/#universityProjects">
+                <a>Projetos da faculdade</a>
+              </Link>
               <Link href="/">
                 <a>Voltar</a>
               </Link>

@@ -1,6 +1,6 @@
 import React from "react";
-import Fpag from "../../../src/pages/projects/pages/Website/html/Fpag";
+import Pag4 from "../../../src/pages/projects/pages/Website/html/Pag4";
 
 export default function pag4() {
-  return <Fpag />;
+  return <Pag4 />;
 }

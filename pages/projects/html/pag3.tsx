@@ -1,6 +1,6 @@
 import React from "react";
-import Tpag from "../../../src/pages/projects/pages/Website/html/Tpag";
+import Pag3 from "../../../src/pages/projects/pages/Website/html/Pag3";
 
 export default function pag3() {
-  return <Tpag />;
+  return <Pag3 />;
 }

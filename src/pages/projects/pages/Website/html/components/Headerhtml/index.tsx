@@ -10,7 +10,7 @@ export default function Headerhtml() {
     setShow(!show);
   };
   return (
-    <Menu id="header">
+    <Menu show={show}>
       <List show={show}>
         <li>
           <Link href="/projects/html/pag1">

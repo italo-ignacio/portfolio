@@ -4,7 +4,7 @@ import Headerhtml from "../components/Headerhtml";
 import { Body, Main } from "../components/styles.module/styles";
 import { Container } from "./styled";
 
-const Pag = () => {
+const Pag1 = () => {
   return (
     <Body id="top">
       <Main>
@@ -52,4 +52,4 @@ const Pag = () => {
   );
 };
 
-export default Pag;
+export default Pag1;

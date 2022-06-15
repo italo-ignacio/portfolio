@@ -3,7 +3,7 @@ import { Body, Main } from "../components/styles.module/styles";
 import Headerhtml from "../components/Headerhtml";
 import { Container } from "./styled";
 
-const Fipag = () => {
+const Pag5 = () => {
   return (
     <Body id="top">
       <Main>
@@ -41,4 +41,4 @@ const Fipag = () => {
   );
 };
 
-export default Fipag;
+export default Pag5;

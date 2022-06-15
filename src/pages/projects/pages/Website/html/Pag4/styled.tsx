@@ -31,4 +31,22 @@ export const Container = styled.div`
     border: 1px solid black;
     padding: 0 1rem;
   }
+
+  @media (max-width: 768px) {
+    .list {
+      padding-left: 2rem;
+    }
+    .center {
+      text-align: center;
+      padding: 0;
+      padding-bottom: 1.7rem;
+    }
+  }
+  @media (max-width: 320px) {
+    .tr,
+    th,
+    td {
+      display: flex;
+    }
+  }
 `;
