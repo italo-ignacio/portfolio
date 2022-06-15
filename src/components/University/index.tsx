@@ -8,17 +8,17 @@ export default function University() {
       <h2>Projetos da faculdade</h2>
       <ContainerWorks>
         <Box
-          title="Website meio ambiente"
+          title="Website"
           img="/html.png"
           desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="/projects/html/pag"
           a="Ver projeto"
         />
         <Box
-          title="Progama sobre o meio ambiente"
+          title="Progama em JAVA"
           img="/java.png"
           desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
         doloribus laudantium ipsa autem nobis animi excepturi doloremque

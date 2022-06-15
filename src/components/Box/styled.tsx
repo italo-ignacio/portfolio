@@ -15,6 +15,7 @@ export const Container = styled.section`
   background-color: ${secondaryDarkColor};
   border-radius: 0.3rem;
   border: 0.3rem solid ${textColor};
+
   div {
     display: block;
     margin: 0 auto;

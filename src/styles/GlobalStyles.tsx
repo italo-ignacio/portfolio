@@ -9,7 +9,8 @@ export default createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        font-family:sans-serif; 
+        font-family: "Bitter", serif;
+        line-height: 1.5;
      
     }
     html,body,#root{
@@ -35,8 +36,6 @@ export default createGlobalStyle`
         text-decoration:none;
         color:${primaryColor}
     }
-    ul{
-        list-style:none;
-    }
+   
 
 `;

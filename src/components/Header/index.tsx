@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Image from "../../../node_modules/next/image";
-import { FiMenu, FiPhone } from "../../../node_modules/react-icons/fi";
+import Image from "next/image";
+import { FiMenu, FiPhone } from "react-icons/fi";
 import { Nav, Nav2, Container, Logo, MenuContent, MenuLabel } from "./styled";
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
   };
   return (
     <>
-      <Container show={show}>
+      <Container>
         <MenuContent>
           <MenuLabel onClick={toggleMenu}>
             <FiMenu />
