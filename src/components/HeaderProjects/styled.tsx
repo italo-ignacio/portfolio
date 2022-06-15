@@ -11,7 +11,6 @@ export const Container = styled.header<StyledHeaderProps>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
 
   @media (max-width: 768px) {
     padding-left: 1rem;

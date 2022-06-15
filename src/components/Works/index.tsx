@@ -8,13 +8,13 @@ export default function Works() {
       <h2>Trabalhos</h2>
       <ContainerWorks>
         <Box
-          title="Website"
+          title="Website Wordpress"
           img="/wordpress.png"
           desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quia quis
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="/projects/websiteWordpress"
           a="Ver projeto"
         />
         <Box
@@ -24,7 +24,7 @@ export default function Works() {
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="/projects/stockManager"
           a="Ver projeto"
         />
       </ContainerWorks>

@@ -14,8 +14,9 @@ export default function Personal() {
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="https://github.com/itilocao/portfolio"
           a="Ver projeto no GitHub"
+          target="blank"
         />
         <Box
           title="Website de patrimônios"
@@ -24,7 +25,7 @@ export default function Personal() {
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="/projects/websitePatrimonies"
           a="Ver projeto"
         />
         <Box
@@ -34,7 +35,7 @@ export default function Personal() {
         doloribus laudantium ipsa autem nobis animi excepturi doloremque
         distinctio delectus officiis facere officia minus, quo similique ut est
         velit."
-          link="/"
+          link="/projects/apiPatrimonies"
           a="Ver projeto"
         />
       </ContainerWorks>

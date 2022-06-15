@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Container } from "./styled";
 import Link from "next/link";
 
-export default function Works({ title, img, desc, link, a }) {
+export default function Works({ title, img, desc, link, a, ...props }) {
   return (
     <Container>
       <h2>{title}</h2>
@@ -12,7 +12,7 @@ export default function Works({ title, img, desc, link, a }) {
       </div>
       <p>{desc}</p>
       <Link href={link}>
-        <a>{a}</a>
+        <a {...props}>{a}</a>
       </Link>
     </Container>
   );
