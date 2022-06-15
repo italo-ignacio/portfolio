@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Body, Main } from "../components/styles/styles";
+import { Body, Main } from "../components/styles.module/styles";
 import Headerhtml from "../components/Headerhtml";
 import { Container } from "./styled";
 

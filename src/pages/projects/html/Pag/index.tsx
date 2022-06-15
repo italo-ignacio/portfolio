@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Headerhtml from "../components/Headerhtml";
-import { Body, Main } from "../components/styles/styles";
+import { Body, Main } from "../components/styles.module/styles";
 import { Container } from "./styled";
 
 const Pag = () => {

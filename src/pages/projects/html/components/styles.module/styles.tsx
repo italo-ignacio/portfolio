@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Body = styled.body`
+export const Body = styled.div`
   min-height: 100vh;
   background-image: url(/bghtml.jpeg);
   background-attachment: fixed;
@@ -19,9 +19,12 @@ export const Body = styled.body`
     font-weight: bold;
     color: white;
   }
+  @media (max-width: 768px) {
+    background-repeat: repeat-y;
+  }
 `;
 
-export const Main = styled.main`
+export const Main = styled.div`
   background: #000000d1;
   width: 80%;
   margin-left: 10%;
