@@ -6,6 +6,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Italo Ignacio</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
