@@ -9,12 +9,12 @@ export default function About() {
         <h2>Sobre mim</h2>
         <p>
           Sou o Italo, tenho 1 ano de experiência no mercado de trabalho, sendo
-          9 meses como programador Python, onde desenvolvi um sistemas de
+          9 meses como programador Python, onde desenvolvi um sistema de
           gerenciamento de estoque e vendas de produtos. E 3 meses como
           desenvolvedor web utilizando WordPress.
         </p>
         <p>
-          Desenvolvi um projeto pessoal de sistema full-stack utilizando o
+          Desenvolvi um projeto pessoal de um sistema full-stack utilizando o
           Framework Express do Nodejs para criar a API e a biblioteca React para
           criar o front-end e consumir a API.
         </p>
@@ -30,6 +30,7 @@ export default function About() {
           </a>
         </p>
       </ContainerAbout>
+
       <ContainerImage>
         <Image
           src="/avatar.png"

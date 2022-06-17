@@ -34,11 +34,11 @@ export default function Header({ project = false }) {
               <a href="#works" onClick={toggleMenu}>
                 Trabalhos
               </a>
-              <a href="#personalProjects" onClick={toggleMenu}>
-                Projetos pessoais
-              </a>
               <a href="#universityProjects" onClick={toggleMenu}>
                 Projetos da faculdade
+              </a>
+              <a href="#personalProjects" onClick={toggleMenu}>
+                Projetos pessoais
               </a>
             </Nav>
           ) : (
@@ -49,11 +49,11 @@ export default function Header({ project = false }) {
               <Link href="/#works">
                 <a>Trabalhos</a>
               </Link>
-              <Link href="/#personalProjects">
-                <a>Projetos pessoais</a>
-              </Link>
               <Link href="/#universityProjects">
                 <a>Projetos da faculdade</a>
+              </Link>
+              <Link href="/#personalProjects">
+                <a>Projetos pessoais</a>
               </Link>
               <Link href="/">
                 <a>Voltar</a>
