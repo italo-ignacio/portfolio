@@ -36,7 +36,7 @@ export default function About() {
           src="/avatar.png"
           alt="Picture of the author"
           width={420}
-          height={500}
+          height={420}
         />
       </ContainerImage>
     </Container>

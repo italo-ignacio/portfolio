@@ -23,7 +23,7 @@ export const ImageArea = styled.div`
   margin-left: auto;
   margin-right: auto;
   @media (max-width: 768px) {
-    min-height: 50vh;
+    min-height: 60vh;
   }
 `;
 
