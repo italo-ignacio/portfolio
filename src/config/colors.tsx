@@ -6,3 +6,5 @@ export const secondaryDarkColor = "#001e44";
 export const textColor = "#dfdfdf";
 export const linkColor = "#fff";
 export const textDarkColor = "#000";
+export const transparente = "#0000002b";
+export const transparenteHover = "#00000075";

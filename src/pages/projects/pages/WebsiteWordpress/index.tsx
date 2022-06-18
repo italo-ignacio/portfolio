@@ -3,8 +3,8 @@ import Header from "../../../../components/Header";
 import Carousel from "../../components/Carousel";
 
 const images = [
-  { url: "/WebsiteWordpressMobile.jpeg", width: 300, height: 450 },
-  { url: "/WebsiteWordpress.png", width: 653, height: 450 },
+  { url: "/projects/WebsiteWordpress.jpeg", width: 300, height: 450 },
+  { url: "/projects/WebsiteWordpress.png", width: 653, height: 450 },
 ];
 
 export default function WebsiteWordpress() {

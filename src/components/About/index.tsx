@@ -29,7 +29,6 @@ export default function About() {
             GitHub
           </a>
         </p>
-        <h2>Boa</h2>
       </ContainerAbout>
 
       <ContainerImage>

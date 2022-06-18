@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { primaryColor, primaryDarkColor } from "../../../../config/colors";
+import {
+  primaryColor,
+  primaryDarkColor,
+  transparente,
+  transparenteHover,
+} from "../../../../config/colors";
 
 export const Container = styled.div`
   display: grid;
@@ -24,6 +29,7 @@ export const ImageArea = styled.div`
   margin-right: auto;
   @media (max-width: 768px) {
     min-height: 60vh;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -60,36 +66,45 @@ export const TextArea = styled.div`
 
 export const ButtonL = styled.div`
   position: absolute;
-  background-color: ${primaryColor};
+  background-color: ${transparente};
   z-index: 999;
   top: 0;
-  margin-top: 21rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  padding-top: 0.4rem;
-  margin-left: 1.2rem;
-  border-radius: 2rem;
+  margin-top: 15rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-left: 3rem;
+  border-radius: 0.5rem;
   font-size: 24px;
-
+  cursor: pointer;
+  :hover {
+    background-color: ${transparenteHover};
+  }
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
+    margin-left: 0.4rem;
   }
 `;
 
 export const ButtonR = styled.div`
   position: absolute;
-  background-color: ${primaryColor};
+  background-color: ${transparente};
   z-index: 999;
   top: 0;
-  margin-top: 21rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  padding-top: 0.4rem;
+  margin-top: 15rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   margin-left: 48%;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   font-size: 24px;
-
+  cursor: pointer;
+  :hover {
+    background-color: ${transparenteHover};
+  }
   @media (max-width: 768px) {
     right: 0;
     margin-right: 1.7rem;

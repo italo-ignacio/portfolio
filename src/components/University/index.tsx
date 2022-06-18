@@ -13,7 +13,7 @@ export default function University() {
           ow="Projeto: 1° semestre"
           fun="Aprendizagem: HTML/CSS"
           desc="Descrição: Site criado em html/css sobre o meio ambiente"
-          link="/projects/html/pag1"
+          link="/projects/website"
           a="Ver projeto"
         />
         <Box
