@@ -29,6 +29,6 @@ export const Container = styled.section`
 
   h2 {
     font-size: 26px;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
   }
 `;

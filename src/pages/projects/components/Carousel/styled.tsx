@@ -1,24 +1,29 @@
 import styled from "styled-components";
 import {
+  linkColor,
   primaryColor,
   primaryDarkColor,
+  secondaryDarkColor,
   transparente,
   transparenteHover,
 } from "../../../../config/colors";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 60% 1% 39%;
   min-height: 80vh;
   margin-left: 5%;
   max-width: 90%;
-  border-top: 8rem solid ${primaryDarkColor};
+  border-top: 6rem solid ${primaryDarkColor};
   border-bottom: 8rem solid ${primaryDarkColor};
-
+  background-color: ${secondaryDarkColor};
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
   }
+`;
+export const Div = styled.div`
+  background-color: ${primaryDarkColor};
 `;
 
 export const ImageArea = styled.div`
@@ -27,8 +32,10 @@ export const ImageArea = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 1rem;
+
   @media (max-width: 768px) {
-    min-height: 60vh;
+    min-height: 65vh;
     margin-bottom: 4rem;
   }
 `;
@@ -50,18 +57,27 @@ interface Selected {
 }
 export const ImageIconLi = styled.li<Selected>`
   background-color: ${({ isSelected }) =>
-    isSelected ? "red" : `${primaryDarkColor}`};
+    isSelected ? "red" : `${secondaryDarkColor}`};
   padding-right: 0.3rem;
   padding-left: 0.3rem;
-  padding-top: 0.3rem;
+  padding-top: 0.4rem;
 `;
 
 export const TextArea = styled.div`
-  background-color: ${primaryDarkColor};
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  margin-left: 1rem;
+
+  h2 a {
+    font-size: 26px;
+    font-weight: bold;
+    color: ${linkColor};
+
+    text-decoration: underline;
+  }
 `;
 
 export const ButtonL = styled.div`
@@ -74,7 +90,7 @@ export const ButtonL = styled.div`
   padding-right: 0.4rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  margin-left: 3rem;
+  margin-left: 1rem;
   border-radius: 0.5rem;
   font-size: 24px;
   cursor: pointer;
@@ -84,6 +100,7 @@ export const ButtonL = styled.div`
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
+    margin-top: 14rem;
     margin-left: 0.4rem;
   }
 `;
@@ -98,7 +115,7 @@ export const ButtonR = styled.div`
   padding-right: 0.4rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  margin-left: 48%;
+  margin-left: 50.6%;
   border-radius: 0.5rem;
   font-size: 24px;
   cursor: pointer;
@@ -107,6 +124,7 @@ export const ButtonR = styled.div`
   }
   @media (max-width: 768px) {
     right: 0;
-    margin-right: 1.7rem;
+    margin-top: 14rem;
+    margin-right: 1.9rem;
   }
 `;

@@ -8,6 +8,7 @@ import {
   ImageIcon,
   ImageIconLi,
   ImagePhoto,
+  Div,
 } from "./styled";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
@@ -66,7 +67,7 @@ const Carousel = (props: AllProps) => {
             ))}
           </ImageIcon>
         </ImageArea>
-
+        <Div> </Div>
         <TextArea>{props.elements}</TextArea>
         <ButtonL onClick={HandleClickL}>
           <a>

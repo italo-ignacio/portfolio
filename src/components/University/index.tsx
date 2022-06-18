@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, ContainerWorks } from "./styled";
 import Box from "../Box";
+import Link from "next/link";
 
 export default function University() {
   return (
@@ -10,29 +11,72 @@ export default function University() {
         <Box
           title="Website"
           img="/html.png"
-          ow="Projeto: 1° semestre"
-          fun="Aprendizagem: HTML/CSS"
-          desc="Descrição: Site criado em html/css sobre o meio ambiente"
-          link="/projects/website"
-          a="Ver projeto"
+          elements={
+            <>
+              <p>Projeto: 1° semestre</p>
+              <p>Aprendizagem: HTML/CSS</p>
+              <p>Descrição: Site criado em html/css sobre o meio ambiente </p>
+
+              <Link href="/projects/html/pag1">
+                <a>Abrir site</a>
+              </Link>
+              <Link href="/projects/website">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
         />
         <Box
           title="Criptografia "
           img="/python.svg"
-          ow="Projeto: 2° semestre"
-          fun="Aprendizagem: Python"
-          desc="Descrição: Programa para criptografar e descriptografar mensagens"
-          link="/projects/cryptography"
-          a="Ver projeto"
+          elements={
+            <>
+              <p>Projeto: 2° semestre</p>
+              <p>Aprendizagem: Python</p>
+              <p>
+                Descrição: Programa para criptografar e descriptografar qualquer
+                mensagens.
+                <br /> Basado na Cifra de César
+              </p>
+              <Link href="/projects/cryptography">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
         />
         <Box
           title="Progama em JAVA"
           img="/java.png"
-          ow="Projeto: 3° semestre"
-          fun="Aprendizagem: Java"
-          desc="Descrição: Intercafe criada em java com um Quiz sobre o meio ambiente"
-          link="/projects/interfaceJava"
-          a="Ver projeto"
+          elements={
+            <>
+              <p>Projeto: 3° semestre</p>
+              <p>Aprendizagem: Java</p>
+              <p>
+                Descrição: Intercafe criada em java com um Quiz sobre o meio
+                ambiente e uma área para calcular seu consumo de água
+              </p>
+              <Link href="/projects/interfaceJava">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
+        />
+        <Box
+          title="JAVA com MySQL"
+          img="/mysql.png"
+          elements={
+            <>
+              <p>Projeto: 3° semestre</p>
+              <p>Aprendizagem: Java</p>
+              <p>
+                Descrição: Intercafe criada em java para gerenciar uma faculdade
+                relacionando os professores, alunos e diciplinas com MySQL
+              </p>
+              <Link href="/projects/interfaceJava">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
         />
       </ContainerWorks>
     </Container>

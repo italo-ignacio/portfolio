@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { transparente, transparenteHover } from "../../config/colors";
 
 export const Button = styled.button`
   position: fixed;
@@ -7,7 +8,12 @@ export const Button = styled.button`
   margin-bottom: 1rem;
   margin-right: 1rem;
   z-index: 999;
+  background-color: ${transparente};
+  :hover {
+    background-color: ${transparenteHover};
+  }
   border-radius: 200%;
+  border: 0.1rem solid ${transparenteHover};
   font-size: 24px;
   text-align: center;
   align-items: center;

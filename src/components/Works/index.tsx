@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, ContainerWorks } from "./styled";
 import Box from "../Box";
+import Link from "next/link";
 
 export default function Works() {
   return (
@@ -10,20 +11,32 @@ export default function Works() {
         <Box
           title="Woocommerce + Wordpress"
           img="/wordpress.png"
-          ow="Empresa: Venda de familia e amigos"
-          fun="Função : Desenvolvedor"
-          desc="Descrição: Loja virtual  Woocommerce criada com o wordpress "
-          link="/projects/websiteWordpress"
-          a="Ver projeto"
+          elements={
+            <>
+              <p>Empresa: Venda de familia e amigos</p>
+              <p>Função : Desenvolvedor</p>
+              <p>Descrição: Loja virtual Woocommerce criada com o wordpress</p>
+              <Link href="/projects/websiteWordpress">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
         />
         <Box
           title="Gerenciador de estoque"
           img="/python.svg"
-          ow="Empresa: Venda de familia e amigos"
-          fun="Função: Desenvolvedor"
-          desc="Descrição: Programa para gerenciar estoque e vendas de produtos"
-          link="/projects/stockManager"
-          a="Ver projeto"
+          elements={
+            <>
+              <p>Empresa: Venda de familia e amigos</p>
+              <p>Função : Desenvolvedor</p>
+              <p>
+                Descrição: Programa para gerenciar estoque e vendas de produtos
+              </p>
+              <Link href="/projects/stockManager">
+                <a>Ver projeto</a>
+              </Link>
+            </>
+          }
         />
       </ContainerWorks>
     </Container>

@@ -6,8 +6,8 @@ import Carousel from "../../components/Carousel";
 const images = [
   { url: "/projects/WebsiteHTML1.jpeg", width: 300, height: 450 },
   { url: "/projects/WebsiteHTML2.jpeg", width: 300, height: 450 },
-  { url: "/projects/WebsiteHTML1.png", width: 653, height: 450 },
-  { url: "/projects/WebsiteHTML2.png", width: 653, height: 450 },
+  { url: "/projects/WebsiteHTML1.png", width: 550, height: 450 },
+  { url: "/projects/WebsiteHTML2.png", width: 550, height: 450 },
 ];
 
 export default function Website() {
@@ -36,7 +36,7 @@ export default function Website() {
 
             <h2>
               <Link href="/projects/html/pag1">
-                <a>Ver projeto</a>
+                <a>Abrir site</a>
               </Link>
               <br />
               <br />
