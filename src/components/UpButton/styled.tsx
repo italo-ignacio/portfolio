@@ -13,7 +13,6 @@ export const Button = styled.button`
     background-color: ${transparenteHover};
   }
   border-radius: 200%;
-  border: 0.1rem solid ${transparenteHover};
   font-size: 24px;
   text-align: center;
   align-items: center;
