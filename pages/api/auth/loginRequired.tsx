@@ -9,7 +9,7 @@ interface TokenPayload {
   iat: number;
   exp: number;
 }
-export default async (authorization: string) => {
+export default async function loginVerification(authorization: string) {
   const [, token] = authorization.split(" ");
 
   try {
@@ -32,4 +32,4 @@ export default async (authorization: string) => {
   } catch (e) {
     return;
   }
-};
+}

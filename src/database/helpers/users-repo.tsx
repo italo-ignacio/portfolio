@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 let users = require("../../../public/data/user.json");
 
 export const usersRepo = {
@@ -39,8 +40,6 @@ function _delete(id) {
 // private helper functions
 
 function saveData() {
-  fs.writeFileSync(
-    `${process.cwd()}/public/data/user.json`,
-    JSON.stringify(users, null, 4)
-  );
+  const file = path.join(process.cwd(), "data", "user.json");
+  fs.writeFileSync(file, JSON.stringify(users, null, 4));
 }
