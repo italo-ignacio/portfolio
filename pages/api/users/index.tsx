@@ -18,12 +18,20 @@ export default async function handler(req, res) {
 
     case "POST":
       try {
-        const { email } = req.body;
+        const { name, email, password } = req.body;
         const hasUser = await User.findOne({ email });
         if (hasUser) {
-          return res.status(400).json({ error: "Email already exists " });
+          return res
+            .status(400)
+            .json({ error: true, msg: "Email already exists " });
         }
-        await User.create(req.body);
+        let user = new User({
+          name,
+          email,
+          password,
+        });
+
+        await user.save();
         res.status(201).json({ success: true, msg: "Successfully created" });
       } catch (error) {
         res.status(400).json({ error: true, msg: error });

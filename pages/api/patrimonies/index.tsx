@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const response = await Patrimony.find({});
+        const response = await Patrimony.find();
         res.status(200).json(response);
       } catch (error) {
         res.status(400).json({ error: true });
@@ -22,16 +22,11 @@ export default async function handler(req, res) {
         const { authorization } = req.headers;
 
         if (!authorization) {
-          res.status(401).json({
-            errors: ["Login required"],
-          });
-          break;
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         const data = await loginRequired(authorization);
         if (!data) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         const { name, cod } = req.body;
         let patrimony = new Patrimony({
@@ -45,7 +40,7 @@ export default async function handler(req, res) {
         res.status(201).json({ success: true, msg: "Successfully created" });
         break;
       } catch (err) {
-        res.status(400).json({ error: true });
+        res.status(400).json({ error: true, msg: "Code already exists" });
       }
       break;
     default:

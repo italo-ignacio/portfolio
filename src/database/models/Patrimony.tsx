@@ -10,12 +10,15 @@ const manager = new mongoose.Schema({
   },
   note: {
     type: String,
+    default: "",
   },
   details: {
     type: String,
+    default: "",
   },
   filename: {
     type: String,
+    default: "",
   },
   owner: {
     type: String,
@@ -26,13 +29,13 @@ const manager = new mongoose.Schema({
   },
 });
 
-manager.virtual("url").get(function () {
+manager.virtual("sss").get(function (value, virtual, doc) {
   try {
     return `/projects/patrimonies/${
       this.filename ? this.filename : "not_found.jpg"
     }`;
   } catch (e) {
-    return ``;
+    return `/projects/patrimonies/not_found.jpg`;
   }
 });
 

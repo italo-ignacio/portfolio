@@ -27,15 +27,11 @@ export default async function handler(req, res) {
       const { authorization } = req.headers;
 
       if (!authorization) {
-        return res.status(401).json({
-          errors: ["Login required"],
-        });
+        return res.status(401).json({ error: true, msg: "Login required" });
       }
       const data = await loginRequired(authorization);
       if (!data) {
-        return res.status(401).json({
-          errors: ["Login required"],
-        });
+        return res.status(401).json({ error: true, msg: "Login required" });
       }
 
       try {
@@ -51,6 +47,8 @@ export default async function handler(req, res) {
             user.password = password;
             await user.save();
           }
+        } else {
+          return res.status(401).json({ error: true, msg: "Unauthorized" });
         }
         res.status(200).json({ success: true, msg: "Successfully updated" });
       } catch (error) {
@@ -63,15 +61,11 @@ export default async function handler(req, res) {
         const { authorization } = req.headers;
 
         if (!authorization) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         const data = await loginRequired(authorization);
         if (!data) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         if (data.is_admin || id == data.id) {
           const deletedUser = await User.deleteOne({ _id: id });

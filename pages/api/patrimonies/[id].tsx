@@ -30,15 +30,11 @@ export default async function handler(req, res) {
         const { authorization } = req.headers;
 
         if (!authorization) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         const data = await loginRequired(authorization);
         if (!data) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
 
         if (data.is_admin || id == data.id) {
@@ -66,15 +62,11 @@ export default async function handler(req, res) {
         const { authorization } = req.headers;
 
         if (!authorization) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         const data = await loginRequired(authorization);
         if (!data) {
-          return res.status(401).json({
-            errors: ["Login required"],
-          });
+          return res.status(401).json({ error: true, msg: "Login required" });
         }
         if (data.is_admin || id == data.id) {
           const deletedPatrimony = await Patrimony.deleteOne({ _id: id });

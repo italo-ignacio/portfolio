@@ -25,16 +25,12 @@ export default async function handler(req, res) {
       const { authorization } = req.headers;
 
       if (!authorization) {
-        return res.status(401).json({
-          errors: ["Login required"],
-        });
+        return res.status(401).json({ error: true, msg: "Login required" });
       }
 
       const data = await loginRequired(authorization);
       if (!data) {
-        return res.status(401).json({
-          errors: ["Login required"],
-        });
+        return res.status(401).json({ error: true, msg: "Login required" });
       }
       try {
         const patrimony = await Patrimony.findById(id);
@@ -73,7 +69,7 @@ export default async function handler(req, res) {
       } catch (e) {
         return res.status(400).json({
           error: true,
-          msg: "Patrimony not found",
+          msg: "Try again later",
         });
       }
 
