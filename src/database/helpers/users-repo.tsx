@@ -40,6 +40,6 @@ function _delete(id) {
 // private helper functions
 
 function saveData() {
-  const file = path.join(process.cwd(), "data", "user.json");
+  const file = path.join("data", "user.json");
   fs.writeFileSync(file, JSON.stringify(users, null, 4));
 }
