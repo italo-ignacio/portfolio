@@ -1,0 +1,30 @@
+[
+  {
+    "name": "jaca",
+    "email": "laranja",
+    "password": "$2b$10$S0VSXIUy9O37IBRT41IQ8eZDQnWS3fq9KyssrPpoB0oK/Ey0GsjiW",
+    "id": 1,
+    "is_admin": true
+  },
+  {
+    "name": "3",
+    "email": "3",
+    "password": "$2b$10$yQzThjKOm64z6vVq4P.sweMUstN9xtIpSsMdq9UcGocDBYJRyw97m",
+    "id": 2,
+    "is_admin": false
+  },
+  {
+    "name": "3",
+    "email": "4",
+    "password": "$2b$10$kNjMpFnRHji/JKxJxry4t.r1mJV1QgRClsAco4umFUz5TxKEaUUjS",
+    "id": 3,
+    "is_admin": false
+  },
+  {
+    "name": "3",
+    "email": "sss4",
+    "password": "$2b$10$866hxUyoSh1J6xh3NdCsiOk1D4MuTlDS13J7rfWMjlMPrVntAMMQy",
+    "id": 4,
+    "is_admin": false
+  }
+]

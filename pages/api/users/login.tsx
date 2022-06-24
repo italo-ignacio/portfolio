@@ -1,25 +1,23 @@
 import jwt from "jsonwebtoken";
-import dbConnect from "../../../src/database/config/dbConnect";
-import User from "../../../src/database/models/User";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
+import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
   const { method } = req;
-
-  await dbConnect();
 
   switch (method) {
     case "POST":
       try {
         const { email, password } = req.body;
         if (!email || !password) {
-          return res.status(400).json({ error: true, msg: "Invalid password" });
+          return res.status(400).json({ error: true, msg: "Invalid data" });
         }
-        const user = await User.findOne({ email });
+        const user = usersRepo.find((x) => x.email === email);
         if (!user) {
           return res.status(400).json({ error: true, msg: "User not found" });
         }
 
-        if (!(await user.passwordIsValid(password, user.password))) {
+        if (!(await bcrypt.compare(password.toString(), user.password))) {
           return res.status(400).json({ error: true, msg: "Invalid password" });
         }
 
@@ -32,9 +30,9 @@ export default async function handler(req, res) {
           }
         );
 
-        return res.status(200).json({ token, user: { name, id, is_admin } });
+        res.status(200).json({ token, user: { name, id, is_admin } });
       } catch (error) {
-        res.status(400).json({ error: true, msg: error });
+        res.status(400).json({ error: true, msg: "User not found" });
       }
       break;
 

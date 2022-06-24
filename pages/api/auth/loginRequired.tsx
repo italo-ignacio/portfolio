@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../../../src/database/models/User";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
 
 interface TokenPayload {
   id: String;
@@ -16,16 +16,19 @@ export default async (authorization: string) => {
     const da = jwt.verify(token, process.env.TOKEN_SECRET);
     const { id, name, email, is_admin } = da as TokenPayload;
 
-    const user = await User.findOne({
-      id,
-      email,
-      is_admin,
-    });
-
-    if (!user) {
-      return;
+    if (
+      usersRepo.find(
+        (x) =>
+          x.id === id &&
+          x.name === name &&
+          x.email === email &&
+          x.is_admin === is_admin
+      )
+    ) {
+      return { id, name, email, is_admin };
     }
-    return { id, name, email, is_admin };
+
+    return;
   } catch (e) {
     return;
   }

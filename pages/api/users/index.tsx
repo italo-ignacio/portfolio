@@ -1,16 +1,14 @@
-import dbConnect from "../../../src/database/config/dbConnect";
-import User from "../../../src/database/models/User";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
+import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
   const { method } = req;
 
-  await dbConnect();
-
   switch (method) {
     case "GET":
       try {
-        const user = await User.find({});
-        res.status(200).json(user);
+        const users = usersRepo.getAll();
+        res.status(200).json(users);
       } catch (error) {
         res.status(400).json({ error: true });
       }
@@ -18,20 +16,14 @@ export default async function handler(req, res) {
 
     case "POST":
       try {
-        const { name, email, password } = req.body;
-        const hasUser = await User.findOne({ email });
-        if (hasUser) {
+        const { password, ...user } = req.body;
+        if (usersRepo.find((x) => x.email === user.email)) {
           return res
             .status(400)
             .json({ error: true, msg: "Email already exists " });
         }
-        let user = new User({
-          name,
-          email,
-          password,
-        });
-
-        await user.save();
+        user.password = bcrypt.hashSync(password, 10);
+        usersRepo.create(user);
         res.status(201).json({ success: true, msg: "Successfully created" });
       } catch (error) {
         res.status(400).json({ error: true, msg: error });

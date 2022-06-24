@@ -1,6 +1,6 @@
-import dbConnect from "../../../src/database/config/dbConnect";
-import User from "../../../src/database/models/User";
+import bcrypt from "bcrypt";
 import loginRequired from "../auth/loginRequired";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
 
 export default async function handler(req, res) {
   const {
@@ -8,12 +8,10 @@ export default async function handler(req, res) {
     method,
   } = req;
 
-  await dbConnect();
-
   switch (method) {
     case "GET":
       try {
-        const user = await User.findById(id);
+        const user = usersRepo.getById(id);
         if (!user) {
           return res.status(400).json({ error: true, msg: "User not Found" });
         }
@@ -35,21 +33,26 @@ export default async function handler(req, res) {
       }
 
       try {
-        const user = await User.findById(id);
+        const user = usersRepo.getById(id);
         if (!user) {
           return res.status(400).json({ error: true, msg: "User not Found" });
         }
-
-        if (data.is_admin || data.id.toString() === user.id.toString()) {
-          const { password = "" } = req.body;
-          await User.findOneAndUpdate({ _id: id }, req.body);
+        if (data.is_admin || id == data.id) {
+          const {
+            name = user.name,
+            email = user.email,
+            password = "",
+          } = req.body;
           if (password != "") {
-            user.password = password;
-            await user.save();
+            let hash = bcrypt.hashSync(password, 10);
+            usersRepo.update(id, { name: name, email: email, password: hash });
+          } else {
+            usersRepo.update(id, { name: name, email: email });
           }
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
         }
+
         res.status(200).json({ success: true, msg: "Successfully updated" });
       } catch (error) {
         res.status(400).json({ error: true, msg: "User not Found" });
@@ -68,10 +71,7 @@ export default async function handler(req, res) {
           return res.status(401).json({ error: true, msg: "Login required" });
         }
         if (data.is_admin || id == data.id) {
-          const deletedUser = await User.deleteOne({ _id: id });
-          if (!deletedUser) {
-            return res.status(400).json({ error: true, msg: "User not Found" });
-          }
+          usersRepo.delete(id);
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
         }
