@@ -1,6 +1,6 @@
-import dbConnect from "../../../src/database/config/dbConnect";
-import Patrimony from "../../../src/database/models/Patrimony";
+import bcrypt from "bcrypt";
 import loginRequired from "../auth/loginRequired";
+import { patrimoniesRepo } from "../../../src/database/helpers/patrimony-repo";
 
 export default async function handler(req, res) {
   const {
@@ -8,12 +8,10 @@ export default async function handler(req, res) {
     method,
   } = req;
 
-  await dbConnect();
-
   switch (method) {
     case "GET":
       try {
-        const patrimony = await Patrimony.findById(id);
+        const patrimony = patrimoniesRepo.getById(id);
         if (!patrimony) {
           return res
             .status(400)
@@ -21,39 +19,37 @@ export default async function handler(req, res) {
         }
         res.status(200).json(patrimony);
       } catch (error) {
-        res.status(400).json({ error: true });
+        res.status(400).json({ error: true, msg: "Patrimony not Found" });
       }
       break;
 
     case "PUT":
+      const { authorization } = req.headers;
+
+      if (!authorization) {
+        return res.status(401).json({ error: true, msg: "Login required" });
+      }
+      const data = await loginRequired(authorization);
+      if (!data) {
+        return res.status(401).json({ error: true, msg: "Login required" });
+      }
+
       try {
-        const { authorization } = req.headers;
-
-        if (!authorization) {
-          return res.status(401).json({ error: true, msg: "Login required" });
+        const patrimony = patrimoniesRepo.getById(id);
+        if (!patrimony) {
+          return res
+            .status(400)
+            .json({ error: true, msg: "Patrimony not Found" });
         }
-        const data = await loginRequired(authorization);
-        if (!data) {
-          return res.status(401).json({ error: true, msg: "Login required" });
-        }
-
         if (data.is_admin || id == data.id) {
-          const patrimony = await Patrimony.findOneAndUpdate(
-            { _id: id },
-            req.body
-          );
-          if (!patrimony) {
-            return res
-              .status(400)
-              .json({ error: true, msg: "Patrimony not Found" });
-          }
+          patrimoniesRepo.update(id, req.body);
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
         }
 
         res.status(200).json({ success: true, msg: "Successfully updated" });
       } catch (error) {
-        res.status(400).json({ error: true, msg: error });
+        res.status(400).json({ error: true, msg: "Patrimony not Found" });
       }
       break;
 
@@ -69,12 +65,7 @@ export default async function handler(req, res) {
           return res.status(401).json({ error: true, msg: "Login required" });
         }
         if (data.is_admin || id == data.id) {
-          const deletedPatrimony = await Patrimony.deleteOne({ _id: id });
-          if (!deletedPatrimony) {
-            return res
-              .status(400)
-              .json({ error: true, msg: "Patrimony not Found" });
-          }
+          patrimoniesRepo.delete(id);
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
         }

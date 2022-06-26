@@ -1,48 +1,63 @@
-import dbConnect from "../../../src/database/config/dbConnect";
-import Patrimony from "../../../src/database/models/Patrimony";
+import { patrimoniesRepo } from "../../../src/database/helpers/patrimony-repo";
 import loginRequired from "../auth/loginRequired";
 
 export default async function handler(req, res) {
   const { method } = req;
 
-  await dbConnect();
-
   switch (method) {
     case "GET":
       try {
-        const response = await Patrimony.find();
-        res.status(200).json(response);
+        const patrimonies = patrimoniesRepo.getAll();
+        res.status(200).json(patrimonies);
       } catch (error) {
         res.status(400).json({ error: true });
       }
       break;
 
     case "POST":
-      try {
-        const { authorization } = req.headers;
+      const { authorization } = req.headers;
 
-        if (!authorization) {
-          return res.status(401).json({ error: true, msg: "Login required" });
+      if (!authorization) {
+        return res.status(401).json({ error: true, msg: "Login required" });
+      }
+      const data = await loginRequired(authorization);
+      if (!data) {
+        return res.status(401).json({ error: true, msg: "Login required" });
+      }
+
+      try {
+        const {
+          name = "",
+          cod = "",
+          note = "",
+          details = "",
+          url = "",
+          owner = data.name,
+          userId = data.id,
+        } = req.body;
+        if (name == "" || cod == "") {
+          return res.status(400).json({ error: true, msg: "Missing data" });
         }
-        const data = await loginRequired(authorization);
-        if (!data) {
-          return res.status(401).json({ error: true, msg: "Login required" });
+        if (patrimoniesRepo.find((x) => x.cod === cod)) {
+          return res
+            .status(400)
+            .json({ error: true, msg: "Code already exists " });
         }
-        const { name, cod } = req.body;
-        let patrimony = new Patrimony({
+        patrimoniesRepo.create({
           name,
           cod,
-          userId: data.id,
-          owner: data.name,
+          note,
+          details,
+          url,
+          owner,
+          userId,
         });
-
-        await patrimony.save();
         res.status(201).json({ success: true, msg: "Successfully created" });
-        break;
-      } catch (err) {
-        res.status(400).json({ error: true, msg: "Code already exists" });
+      } catch (error) {
+        res.status(400).json({ error: true, msg: error });
       }
       break;
+
     default:
       res.status(400).json({ error: true, msg: "URL does not exist" });
       break;
