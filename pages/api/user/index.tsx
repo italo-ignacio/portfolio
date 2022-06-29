@@ -23,6 +23,7 @@ export default async function handler(req, res) {
             .json({ error: true, msg: "Email already exists " });
         }
         user.password = bcrypt.hashSync(password, 10);
+        user.patrimonies = 0;
         usersRepo.create(user);
         res.status(201).json({ success: true, msg: "Successfully created" });
       } catch (error) {

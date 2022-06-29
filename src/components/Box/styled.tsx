@@ -11,12 +11,14 @@ export const Container = styled.section`
   border-radius: 0.3rem;
   border: 0.3rem solid ${textColor};
   min-width: 45%;
-
+  h3 {
+    font-size: 2rem;
+    color: ${linkColor};
+  }
   div {
     display: block;
     margin: 0 auto;
-    max-width: 15rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
   }
 
   a {
@@ -25,10 +27,5 @@ export const Container = styled.section`
     color: ${linkColor};
 
     text-decoration: underline;
-  }
-
-  h2 {
-    font-size: 26px;
-    padding-bottom: 1rem;
   }
 `;

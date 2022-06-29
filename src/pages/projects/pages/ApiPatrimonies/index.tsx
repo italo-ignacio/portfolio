@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../../../components/Header";
+import HeaderProject from "../../../../components/HeaderProject";
 
 export default function ApiPatrimonies() {
   return (
-    <>
-      <Header project={true} />
+    <div id="top">
+      <HeaderProject />
       <h1>Projeto api patrimonio</h1>
-    </>
+    </div>
   );
 }

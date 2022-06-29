@@ -1,4 +1,5 @@
 import { patrimoniesRepo } from "../../../src/database/helpers/patrimony-repo";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
 import loginRequired from "../auth/loginRequired";
 
 export default async function handler(req, res) {
@@ -41,9 +42,9 @@ export default async function handler(req, res) {
         if (patrimoniesRepo.find((x) => x.cod === cod)) {
           return res
             .status(400)
-            .json({ error: true, msg: "Code already exists " });
+            .json({ error: true, msg: "Code already exists" });
         }
-        patrimoniesRepo.create({
+        const patrimony = patrimoniesRepo.create({
           name,
           cod,
           note,
@@ -52,7 +53,12 @@ export default async function handler(req, res) {
           owner,
           userId,
         });
-        res.status(201).json({ success: true, msg: "Successfully created" });
+        usersRepo.update(data.id, { patrimonies: data.patrimonies + 1 });
+        res.status(201).json({
+          success: true,
+          msg: "Successfully created",
+          id: patrimony.id,
+        });
       } catch (error) {
         res.status(400).json({ error: true, msg: error });
       }

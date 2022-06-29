@@ -1,6 +1,5 @@
-import Link from "next/link";
 import React from "react";
-import Header from "../../../../components/Header";
+import HeaderProject from "../../../../components/HeaderProject";
 import Carousel from "../../components/Carousel";
 import { H2, P } from "./styled";
 
@@ -11,8 +10,8 @@ const images = [
 
 export default function Cryptography() {
   return (
-    <>
-      <Header project={true} />
+    <div id="top">
+      <HeaderProject />
       <Carousel
         images={images}
         elements={
@@ -49,7 +48,7 @@ export default function Cryptography() {
         <H2>Código do projeto</H2>
         <p>{cod}</p>
       </P>
-    </>
+    </div>
   );
 }
 

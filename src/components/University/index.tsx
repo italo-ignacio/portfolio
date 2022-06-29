@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function University() {
   return (
-    <Container id="universityProjects">
-      <h2>Projetos da faculdade</h2>
+    <Container>
+      <h2 id="universityProjects">Projetos da faculdade</h2>
       <ContainerWorks>
         <Box
           title="Website"

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../../../components/Header";
+import HeaderProject from "../../../../components/HeaderProject";
 import Carousel from "../../components/Carousel";
 
 const images = [
@@ -9,8 +9,8 @@ const images = [
 
 export default function WebsiteWordpress() {
   return (
-    <>
-      <Header project={true} />
+    <div id="top">
+      <HeaderProject />
       <Carousel
         images={images}
         elements={
@@ -36,6 +36,6 @@ export default function WebsiteWordpress() {
           </>
         }
       />
-    </>
+    </div>
   );
 }

@@ -1,10 +1,10 @@
-import Link from "next/link";
+import { Link } from "react-scroll";
 import React, { useState } from "react";
 import Image from "next/image";
-import { FiMenu, FiPhone, FiX } from "react-icons/fi";
-import { Nav, Nav2, Container, Logo, MenuContent, MenuLabel } from "./styled";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Nav, Container, Logo, MenuContent, MenuLabel } from "./styled";
 
-export default function Header({ project = false }) {
+export default function Header() {
   const [show, setShow] = useState(false);
 
   const toggleMenu = () => {
@@ -19,58 +19,64 @@ export default function Header({ project = false }) {
           </MenuLabel>
         </MenuContent>
         <Logo>
-          <Link href="/">
-            <a>
-              <Image src="/avatar.png" width="60px" height="60px" alt="Logo" />
-            </a>
+          <Link
+            activeClass="active"
+            to="top"
+            spy={true}
+            smooth={true}
+            offset={-10}
+            duration={500}
+            onClick={toggleMenu}
+          >
+            <Image src="/avatar.png" width="60px" height="60px" alt="Logo" />
           </Link>
         </Logo>
         <Nav show={show}>
-          {!project ? (
-            <Nav show={show}>
-              <a href="#top" onClick={toggleMenu}>
-                Sobre mim
-              </a>
-              <a href="#works" onClick={toggleMenu}>
-                Trabalhos
-              </a>
-              <a href="#universityProjects" onClick={toggleMenu}>
-                Projetos da faculdade
-              </a>
-              <a href="#personalProjects" onClick={toggleMenu}>
-                Projetos pessoais
-              </a>
-            </Nav>
-          ) : (
-            <Nav show={show}>
-              <Link href="/#top">
-                <a>Sobre mim</a>
-              </Link>
-              <Link href="/#works">
-                <a>Trabalhos</a>
-              </Link>
-              <Link href="/#universityProjects">
-                <a>Projetos da faculdade</a>
-              </Link>
-              <Link href="/#personalProjects">
-                <a>Projetos pessoais</a>
-              </Link>
-              <Link href="/">
-                <a>Voltar</a>
-              </Link>
-            </Nav>
-          )}
-        </Nav>
-        {/*
-        <Nav2>
-          <a
-            href="https://api.whatsapp.com/send?phone=5511941901415"
-            target="blank"
+          <Link
+            activeClass="active"
+            to="top"
+            spy={true}
+            smooth={true}
+            offset={-10}
+            duration={500}
+            onClick={toggleMenu}
           >
-            <FiPhone />
-          </a>
-        </Nav2>
-        */}
+            Sobre mim
+          </Link>
+          <Link
+            activeClass="active"
+            to="works"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={500}
+            onClick={toggleMenu}
+          >
+            Trabalhos
+          </Link>
+          <Link
+            activeClass="active"
+            to="universityProjects"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={500}
+            onClick={toggleMenu}
+          >
+            Projetos da faculdade
+          </Link>
+          <Link
+            activeClass="active"
+            to="personalProjects"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={500}
+            onClick={toggleMenu}
+          >
+            Projetos pessoais
+          </Link>
+        </Nav>
       </Container>
     </>
   );

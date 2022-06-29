@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt";
 import loginRequired from "../auth/loginRequired";
 import { patrimoniesRepo } from "../../../src/database/helpers/patrimony-repo";
+import { usersRepo } from "../../../src/database/helpers/users-repo";
 
 export default async function handler(req, res) {
   const {
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             .status(400)
             .json({ error: true, msg: "Patrimony not Found" });
         }
-        if (data.is_admin || id == data.id) {
+        if (data.is_admin || patrimony.userId == data.id) {
           patrimoniesRepo.update(id, req.body);
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
@@ -64,11 +64,13 @@ export default async function handler(req, res) {
         if (!data) {
           return res.status(401).json({ error: true, msg: "Login required" });
         }
-        if (data.is_admin || id == data.id) {
+        const patrimony = patrimoniesRepo.getById(id);
+        if (data.is_admin || patrimony.userId == data.id) {
           patrimoniesRepo.delete(id);
         } else {
           return res.status(401).json({ error: true, msg: "Unauthorized" });
         }
+        usersRepo.update(data.id, { patrimonies: data.patrimonies - 1 });
         res.status(200).json({ success: true, msg: "Successfully deleted" });
       } catch (error) {
         res.status(400).json({ error: true, msg: error });

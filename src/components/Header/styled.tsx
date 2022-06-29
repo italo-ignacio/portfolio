@@ -27,6 +27,7 @@ export const Logo = styled.div`
     grid-area: logo;
   }
   margin-top: 3px;
+  cursor: pointer;
   img {
     width: 7.5rem;
     padding: 0.5rem;
@@ -65,7 +66,7 @@ interface StyledNavProps {
 export const Nav = styled.nav<StyledNavProps>`
   display: flex;
   align-items: center;
-
+  cursor: pointer;
   a {
     display: block;
     color: ${linkColor};

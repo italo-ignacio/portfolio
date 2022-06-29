@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Personal() {
   return (
-    <Container id="personalProjects">
-      <h2>Projetos pessoais</h2>
+    <Container>
+      <h2 id="personalProjects">Projetos pessoais</h2>
       <ContainerWorks>
         <Box
           title="Este website"
@@ -36,6 +36,9 @@ export default function Personal() {
                 usuários cadastrados no banco de dados da API de patrimônios
               </p>
               <p></p>
+              <Link href="/projects/patrimonies/home">
+                <a>Ver site</a>
+              </Link>
               <Link href="/projects/websitePatrimonies">
                 <a>Ver projeto</a>
               </Link>

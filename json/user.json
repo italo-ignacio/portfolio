@@ -1,44 +1,34 @@
 [
     {
-        "name": "jaca",
-        "email": "laranja",
-        "password": "$2b$10$S0VSXIUy9O37IBRT41IQ8eZDQnWS3fq9KyssrPpoB0oK/Ey0GsjiW",
+        "name": "italo",
+        "email": "italo@gmail.com",
+        "password": "$2b$10$9/mfR5CcrQrUTYgbwl4O9uHQbFiRI0CNXrx01GndCqp3lNMFDfVJ.",
+        "patrimonies": 3,
         "id": 1,
-        "is_admin": true
+        "is_admin": false
     },
     {
-        "name": "3",
-        "email": "3",
-        "password": "$2b$10$yQzThjKOm64z6vVq4P.sweMUstN9xtIpSsMdq9UcGocDBYJRyw97m",
+        "name": "Gabriel",
+        "email": "gabriel@gmail.com",
+        "password": "$2b$10$rKQ8zNMJ/OKnNc4siYUd0uPKauinDgKELy6dDHyIhsnEFp5UfC/bG",
+        "patrimonies": 2,
         "id": 2,
         "is_admin": false
     },
     {
-        "name": "3",
-        "email": "4",
-        "password": "$2b$10$kNjMpFnRHji/JKxJxry4t.r1mJV1QgRClsAco4umFUz5TxKEaUUjS",
+        "name": "Robin",
+        "email": "robin@gmail.com",
+        "password": "$2b$10$7C2LHO7ZpCsZ1/j/VAiaR.h6d6e4GheOz8ief9gBdRjeGMmmjXy0C",
+        "patrimonies": 2,
         "id": 3,
         "is_admin": false
     },
     {
-        "name": "3",
-        "email": "sss4",
-        "password": "$2b$10$866hxUyoSh1J6xh3NdCsiOk1D4MuTlDS13J7rfWMjlMPrVntAMMQy",
+        "name": "Bruno",
+        "email": "bruno@gmail.com",
+        "password": "$2b$10$AMsIAaX8sCw4pJkZy2U7jOVeT8RCKhWAM7KhrHcE.nzsUoeGSvbW.",
+        "patrimonies": 2,
         "id": 4,
-        "is_admin": false
-    },
-    {
-        "name": "maracuja",
-        "email": "mara",
-        "password": "$2b$10$4ydx/.EtRMX578nIvNW0E.34Ba12oc55hZ6D5bsuSHwzjV5cf8wTe",
-        "id": 5,
-        "is_admin": false
-    },
-    {
-        "name": "maracuja",
-        "email": "masssra",
-        "password": "$2b$10$VjXH.Wf96BOe0ZhpCGRN0eUugs5fpMwDk/8irXAObXkMNpqcscALy",
-        "id": 6,
         "is_admin": false
     }
 ]

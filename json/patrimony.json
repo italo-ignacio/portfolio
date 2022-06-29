@@ -1,1 +1,92 @@
-[]
+[
+    {
+        "name": "Mesa",
+        "cod": "0001",
+        "note": "MESA DE JANTAR MÉRIDA MADEIRA CLARA",
+        "details": "A Mesa de Jantar Mérida é perfeita para quem aprecia o estilo retrô e peças coloridas. Com um design vintage e em diversas opções de cores no tampo, é fácilmente versátil na hora de combinar com outros estilos de decoração. Possui os famosos pés palito que habitam o imaginário de quem gosta de móveis no estilo antigo. Se você busca por uma mesa de jantar com um design encantador e que seja o destaque na decoração, essa é a escolha ideal.",
+        "url": "https://www.muma.com.br/media/catalog/product/cache/1/image/1320x1320/9df78eab33525d08d6e5fb8d27136e95/m/e/merida6_5.jpg",
+        "owner": "italo",
+        "userId": 1,
+        "id": 1
+    },
+    {
+        "name": "Armário",
+        "cod": "0002",
+        "note": "ARMÁRIO BAR TRENTO ALTO",
+        "details": "Design robusto, linhas marcantes e com detalhes bem marcados, o Armário Bar Trento Alto é o móvel para quem ama uma decoração impactante. Todo feito em madeira maciça, ele recebe um acabamento rústico aplicado manualmente, com tonalidade castanho médio e uma pátina escura, resultando em uma autenticidade que é presente em uma madeira de demolição. Leve o Trento para fazer parte da sua área de bar, sala de estar, na cozinha ou até mesmo na sala de jantar. Possui espaço suficiente para armazenar todas as louças que usa nos momentos de recepção.",
+        "url": "https://www.muma.com.br/media/catalog/product/cache/1/image/660x660/9df78eab33525d08d6e5fb8d27136e95/a/r/armario-bar-trento-alto_1.jpg",
+        "owner": "italo",
+        "userId": 1,
+        "id": 2
+    },
+    {
+        "name": "Buffet",
+        "cod": "0003",
+        "note": "BUFFET MOOCA PRETO",
+        "details": "O Buffet Mooca Preto aprimora a decoração do ambiente, oferecendo um lindo acabamento escuro sobre a estrutura, toda construída em MDF maciço com revestimento de melamina BP de alta resistência, tornando- se uma peça indispensável para organizar e guardar objetos. As portas ganham destaque, está disponível em várias cores, com certeza alguma vai combinar perfeitamente com o seu estilo de decor. Seja na sala de estar, jantar, cozinha ou no corredor, os detalhes do buffet se destacam, os cantos arredondados, os perfis das portas, puxadores e os pés levemente inclinados são todos feitos em madeira maciça de eucalipto e acabamento com cera impregnante. Detalhes incríveis que fazem toda a diferença.",
+        "url": "https://www.muma.com.br/media/catalog/product/cache/1/image/660x660/9df78eab33525d08d6e5fb8d27136e95/b/u/buffet-mooca-preto-porta-preto_1_1.jpg",
+        "owner": "italo",
+        "userId": 1,
+        "id": 3
+    },
+    {
+        "name": "Carrinho",
+        "cod": "0004",
+        "note": "Carrinho hot wheels 1:64 colecao 2019 mattel",
+        "details": "",
+        "url": "https://images-americanas.b2w.io/produtos/3256032031/imagens/carrinho-hot-wheels-1-64-colecao-2019-mattel/3256032057_1_xlarge.jpg",
+        "owner": "Gabriel",
+        "userId": 2,
+        "id": 4
+    },
+    {
+        "name": "Pista Tubarão",
+        "cod": "0005",
+        "note": "Pista Tubarão com Looping com 1,7 m e 12 peças - 0404 - Braskit",
+        "details": "Pista Tubarão com Looping é um brinquedo muito divertido que as crianças irão adorar.\n\nEsse desafio será passar ileso pela boca imensa de um terrível Tubarão.\nA brincadeira começará quando friccionar o carrinho na plataforma, gerando um impulso muito forte ao ser solto.\n\nEle percorrerá toda a pista com sua energia, passando pelo looping de 360º, e além disso, terá ainda que passar pela boca de um terrível Tubarão.\n\nEsse brinquedo promove diversão nas crianças que são apaixonados por pequenos carro",
+        "url": "https://images-americanas.b2w.io/produtos/4982742264/imagens/pista-tubarao-com-looping-com-1-7-m-e-12-pecas-0404-braskit/4982742264_1_xlarge.jpg",
+        "owner": "Gabriel",
+        "userId": 2,
+        "id": 5
+    },
+    {
+        "name": "RTX",
+        "cod": "0006",
+        "note": "PLACA DE VIDEO ZOTAC GEFORCE RTX 2080 8GB GDDR6 BLOWER 256-BIT, ZT-T20800A-10P",
+        "details": "R$4.899,84",
+        "url": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/t/zt-t20800a-10p142.jpg",
+        "owner": "Robin",
+        "userId": 3,
+        "id": 6
+    },
+    {
+        "name": "RTX 6090",
+        "cod": "0007",
+        "note": "Legendary",
+        "details": "",
+        "url": "https://i.ytimg.com/vi/ExHaN0UJjg0/maxresdefault.jpg",
+        "owner": "Robin",
+        "userId": 3,
+        "id": 7
+    },
+    {
+        "name": "Caminhão",
+        "cod": "0008",
+        "note": "VOLKSWAGEN VW 23220 2005/2005",
+        "details": "Tipo: CAMINHAO\nMarca: VOLKSWAGEN\nModelo: VW 23220\nAno: 2005\nAno do Modelo: 2005\nTração: Truck 6x2\nQuilometragem: 00km\nCarroceria: Caçamba Basculante\nCor: BRANCO",
+        "url": "https://images.caminhoesecarretas.com.br/cliente_019551/veiculos/1006294_4da19451-8808-495f-9e5d-7d390424307d_big.jpeg?r=9tUlCKeEFEecRdB9VpD1aQ",
+        "owner": "Bruno",
+        "userId": 4,
+        "id": 8
+    },
+    {
+        "name": "Trator",
+        "cod": "0009",
+        "note": "Trator 8400R",
+        "details": "O trator mais potente produzido no Brasil, entregando ainda mais produtividade;\nOpção de pneus 800/70R38, duplos na traseira, maior tração e flutuação;\nTransmissão inteligente e23™ com gerenciador de eficiência, até 16% mais econômico;\nEixo dianteiro com suspensão independente (ILS), até 9% a mais em produtividade.",
+        "url": "https://www.deere.com.br/assets/images/region-3/products/tractors/large/8r-series/8400r/estudio_8400r_large_492de84890c6fcd17eef28529ed21e74afd05861.png",
+        "owner": "Bruno",
+        "userId": 4,
+        "id": 9
+    }
+]

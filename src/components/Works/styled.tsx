@@ -14,7 +14,7 @@ export const Container = styled.section`
   max-width: 90%;
   h2 {
     font-size: 32px;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     color: ${linkColor};
   }
 `;
@@ -23,7 +23,7 @@ export const ContainerWorks = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
   }

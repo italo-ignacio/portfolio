@@ -5,6 +5,8 @@ export const patrimoniesRepo = {
   getAll: () => patrimonies,
   getById: (id) => patrimonies.find((x) => x.id.toString() === id.toString()),
   find: (x) => patrimonies.find(x),
+  findAll: (id) =>
+    patrimonies.filter((x) => x.userId.toString() === id.toString()),
   create,
   update,
   delete: _delete,
@@ -18,6 +20,7 @@ function create(patrimony) {
   patrimonies.push(patrimony);
 
   saveData();
+  return patrimony;
 }
 
 function update(id, params) {

@@ -11,7 +11,7 @@ interface AllProps {
 const Box = (props: AllProps) => {
   return (
     <Container>
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
       <div>
         <Image
           src={props.img}

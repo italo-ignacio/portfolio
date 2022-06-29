@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Works() {
   return (
-    <Container id="works">
-      <h2>Trabalhos</h2>
+    <Container>
+      <h2 id="works">Trabalhos</h2>
       <ContainerWorks>
         <Box
           title="Woocommerce + Wordpress"

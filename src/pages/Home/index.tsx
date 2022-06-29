@@ -6,11 +6,14 @@ import University from "../../components/University";
 import Works from "../../components/Works";
 
 const Home = () => {
+  console.log(process.env.TOKEN_SECRET);
   return (
     <>
-      <Header project={false} />
+      <Header />
+
       <About />
       <Works />
+
       <University />
       <Personal />
     </>

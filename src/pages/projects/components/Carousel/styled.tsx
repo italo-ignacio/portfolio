@@ -17,6 +17,7 @@ export const Container = styled.div`
   border-top: 6rem solid ${primaryDarkColor};
   border-bottom: 8rem solid ${primaryDarkColor};
   background-color: ${secondaryDarkColor};
+
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -50,6 +51,7 @@ export const ImagePhoto = styled.ul`
 export const ImageIcon = styled.ul`
   display: flex;
   margin-top: 1rem;
+  padding-bottom: 2rem;
 `;
 
 interface Selected {
