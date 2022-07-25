@@ -4,10 +4,10 @@ import HeaderProject from "../../../../components/HeaderProject";
 import Carousel from "../../components/Carousel";
 
 const images = [
-  { url: "/projects/WebsiteHTML1.jpeg", width: 300, height: 450 },
-  { url: "/projects/WebsiteHTML2.jpeg", width: 300, height: 450 },
-  { url: "/projects/WebsiteHTML1.png", width: 550, height: 450 },
-  { url: "/projects/WebsiteHTML2.png", width: 550, height: 450 },
+  { url: "/projects/WebsiteHTML1.png", width: 300, height: 530 },
+  { url: "/projects/WebsiteHTML2.png", width: 300, height: 530 },
+  { url: "/projects/WebsiteHTML3.png", width: 300, height: 530 },
+  { url: "/projects/WebsiteHTML4.png", width: 300, height: 530 },
 ];
 
 export default function Website() {

@@ -13,6 +13,9 @@ export const P = styled.p`
     padding: 0.5rem;
     word-wrap: break-word;
   }
+  @media (max-width: 768px) {
+    max-width: 80%;
+  }
 `;
 
 export const H2 = styled.h2`

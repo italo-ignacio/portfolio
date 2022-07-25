@@ -16,10 +16,10 @@ export const PrimaryContainer = styled.div`
   display: grid;
   grid-template-columns: 80% 20%;
   grid-template-areas: "patrimony user";
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-areas: "patrimony";
+  min-height: 1000px;
+  @media (max-width: 990px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -59,26 +59,7 @@ export const TertiaryContainer = styled.div`
   flex-direction: column;
 `;
 
-export const SearchContainer = styled.div`
-  display: grid;
-  grid-template-columns: 40% 40% 20%;
-  grid-template-areas: "regPatrimony searchPatrimony searchUser";
-
-  .btn_backspace {
-    position: absolute;
-    top: 23px;
-    height: 39px;
-    padding: 8px 10px;
-    right: 0;
-    z-index: 10;
-    border: none;
-    background: transparent;
-    color: ${colors.primaryColor};
-  }
-`;
-
 export const RegPatrimonyContainer = styled.div`
-  grid-area: regPatrimony;
   text-align: center;
 
   .reg_container {
@@ -87,7 +68,6 @@ export const RegPatrimonyContainer = styled.div`
 `;
 
 export const SearchPatrimonyContainer = styled.div`
-  grid-area: searchPatrimony;
   margin-right: 25px;
   position: relative;
 
@@ -96,7 +76,17 @@ export const SearchPatrimonyContainer = styled.div`
     flex-direction: column;
     margin-bottom: 20px;
   }
-
+  .btn_backspace {
+    position: absolute;
+    top: 23px;
+    height: 39px;
+    padding: 13px 10px;
+    right: 0;
+    z-index: 10;
+    border: none;
+    background: transparent;
+    color: ${colors.primaryColor};
+  }
   input {
     height: 40px;
     font-size: 18px;
@@ -112,14 +102,23 @@ export const SearchPatrimonyContainer = styled.div`
 `;
 
 export const SearchUserContainer = styled.div`
-  grid-area: searchUser;
   position: relative;
   label {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
   }
-
+  .btn_backspace {
+    position: absolute;
+    top: 23px;
+    height: 39px;
+    padding: 13px 10px;
+    right: 0;
+    z-index: 10;
+    border: none;
+    background: transparent;
+    color: ${colors.primaryColor};
+  }
   input {
     height: 40px;
     font-size: 18px;

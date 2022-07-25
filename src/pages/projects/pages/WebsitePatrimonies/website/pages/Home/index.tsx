@@ -6,7 +6,6 @@ import {
   PrimaryContainer,
   SecondaryContainer,
   TertiaryContainer,
-  SearchContainer,
   RegPatrimonyContainer,
   SearchPatrimonyContainer,
   SearchUserContainer,
@@ -24,6 +23,7 @@ import Link from "next/link";
 export default function Home() {
   const { loading, authenticated, token } = useContext(AuthContext);
   const [loadingPage, setLoadingPage] = useState(true);
+  const [warning, setWarning] = useState(false);
   const [patrimonies, setPatrimonies] = useState([]);
   const [users, setUsers] = useState([]);
   const { query } = useRouter();
@@ -36,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     async function List() {
-      const responsePatrimonies = await axios.get(`/patrimony/`);
+      const responsePatrimonies = await axios.get(`/patrimony`);
       const responseUsers = await axios.get("/user");
       setPatrimonies(responsePatrimonies.data);
       setTotalPatrimonies(responsePatrimonies.data.length);
@@ -52,7 +52,7 @@ export default function Home() {
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(lowerSearchUser)
   );
-  const filteredPatrimoniesID = patrimonies.filter(
+  const filteredPatrimoniesID = filteredPatrimonies.filter(
     (patrimonies) =>
       patrimonies.userId.toString() === query.userId?.toString() || 0
   );
@@ -63,87 +63,116 @@ export default function Home() {
   if (loadingPage) {
     return <Loading />;
   }
+
   return (
     <>
       <GeneralContainer>
-        <SearchContainer>
-          <RegPatrimonyContainer>
-            {authenticated ? <RegPatrimony token={token} /> : <></>}
-          </RegPatrimonyContainer>
-          <SearchPatrimonyContainer>
-            <label>
-              Buscar patrimonio:
-              <input
-                placeholder="Nome do pratrimonio"
-                type="text"
-                value={searchPatrimony}
-                onChange={(e) => {
-                  setSearchPatrimony(e.target.value);
-                }}
-              />
-              <button
-                className="btn_backspace"
-                onClick={() => {
-                  setSearchPatrimony("");
-                }}
-              >
-                <TiDelete fontSize={22} />
-              </button>
-            </label>
-          </SearchPatrimonyContainer>
-          <SearchUserContainer>
-            <label>
-              Buscar usuario:
-              <input
-                placeholder="Nome do usuario"
-                type="text"
-                value={searchUser}
-                onChange={(e) => {
-                  setSearchUser(e.target.value);
-                }}
-              />
-              <button
-                className="btn_backspace"
-                onClick={() => {
-                  setSearchUser("");
-                }}
-              >
-                <TiDelete fontSize={22} />
-              </button>
-            </label>
-          </SearchUserContainer>
-        </SearchContainer>
+        <button
+          onClick={() => {
+            setWarning(!warning);
+          }}
+        >
+          <h2>Aviso</h2>
+        </button>
+        {warning ? (
+          <>
+            <br />
+            <br />
+            <h3>
+              O banco de dados esta fixo, então não é possivel cadastrar novos
+              itens.
+            </h3>
+            <br />
+            <h4>Caso queira fazer login</h4>
+            <br />
+            <h3>E-mail: italo@gmail.com</h3>
+            <h3>Senha: 123456</h3>
+            <br />
+          </>
+        ) : (
+          <></>
+        )}
+
+        <RegPatrimonyContainer>
+          {authenticated ? <RegPatrimony token={token} /> : <></>}
+        </RegPatrimonyContainer>
+        <br />
         <PrimaryContainer>
-          <SecondaryContainer>
-            {idSeached === 0
-              ? filteredPatrimonies.map((patrimony) => (
-                  <Patrimony
-                    name={patrimony.name}
-                    cod={patrimony.cod}
-                    owner={patrimony.owner}
-                    ownerId={patrimony.userId}
-                    move={true}
-                    note={patrimony.note}
-                    url={patrimony.url}
-                    id={patrimony.id}
-                    key={patrimony.id}
-                  />
-                ))
-              : filteredPatrimoniesID.map((patrimony) => (
-                  <Patrimony
-                    name={patrimony.name}
-                    cod={patrimony.cod}
-                    owner={patrimony.owner}
-                    ownerId={patrimony.userId}
-                    move={true}
-                    note={patrimony.note}
-                    url={patrimony.url}
-                    id={patrimony.id}
-                    key={patrimony.id}
-                  />
-                ))}
-          </SecondaryContainer>
+          <div>
+            <SearchPatrimonyContainer>
+              <label>
+                Buscar patrimonio:
+                <input
+                  placeholder="Nome do pratrimonio"
+                  type="text"
+                  value={searchPatrimony}
+                  onChange={(e) => {
+                    setSearchPatrimony(e.target.value);
+                  }}
+                />
+                <button
+                  className="btn_backspace"
+                  onClick={() => {
+                    setSearchPatrimony("");
+                  }}
+                >
+                  <TiDelete fontSize={22} />
+                </button>
+              </label>
+            </SearchPatrimonyContainer>
+
+            <SecondaryContainer>
+              {idSeached === 0
+                ? filteredPatrimonies.map((patrimony) => (
+                    <Patrimony
+                      name={patrimony.name}
+                      cod={patrimony.cod}
+                      owner={patrimony.owner}
+                      ownerId={patrimony.userId}
+                      move={true}
+                      note={patrimony.note}
+                      url={patrimony.url}
+                      id={patrimony.id}
+                      key={patrimony.id}
+                    />
+                  ))
+                : filteredPatrimoniesID.map((patrimony) => (
+                    <Patrimony
+                      name={patrimony.name}
+                      cod={patrimony.cod}
+                      owner={patrimony.owner}
+                      ownerId={patrimony.userId}
+                      move={true}
+                      note={patrimony.note}
+                      url={patrimony.url}
+                      id={patrimony.id}
+                      key={patrimony.id}
+                    />
+                  ))}
+            </SecondaryContainer>
+          </div>
           <TertiaryContainer>
+            <SearchUserContainer>
+              <label>
+                Buscar usuario:
+                <input
+                  placeholder="Nome do usuario"
+                  type="text"
+                  value={searchUser}
+                  onChange={(e) => {
+                    setSearchUser(e.target.value);
+                  }}
+                />
+                <button
+                  className="btn_backspace"
+                  onClick={() => {
+                    setSearchUser("");
+                  }}
+                >
+                  <TiDelete fontSize={22} />
+                </button>
+              </label>
+            </SearchUserContainer>
             <Link href="/projects/patrimonies/home">
               <ResetUserContainer
                 selected={query.userId !== undefined ? false : true}

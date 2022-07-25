@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaCircle, FaSignOutAlt } from "react-icons/fa";
+import { FaCircle, FaSignOutAlt, FaHome } from "react-icons/fa";
 
 import { Nav } from "./styled";
 import { AuthContext } from "../../contexts/auth";
@@ -32,10 +32,6 @@ export default function Header() {
             <></>
           )}
 
-          <label>
-            <FaCircle color={authenticated ? "#33FF14" : "red"} />
-          </label>
-
           {authenticated ? (
             <Link href="/projects/patrimonies/register">{name}</Link>
           ) : (
@@ -50,7 +46,7 @@ export default function Header() {
           )}
         </div>
         <div>
-          <Link href={"/"}>Tela de início</Link>
+          <Link href={"/"}>Início</Link>
         </div>
       </Nav>
     </>

@@ -13,7 +13,7 @@ export default function Headerhtml() {
     <Menu show={show}>
       <List show={show}>
         <li>
-          <Link href="/">
+          <Link href="/projects/html/pag1">
             <a>Home</a>
           </Link>
         </li>

@@ -4,8 +4,8 @@ import Carousel from "../../components/Carousel";
 import { H2, P } from "./styled";
 
 const images = [
-  { url: "/projects/Criptografia1.png", width: 558, height: 502 },
-  { url: "/projects/Criptografia2.png", width: 556, height: 500 },
+  { url: "/projects/Cryptography1.png", width: 519, height: 719 },
+  { url: "/projects/Cryptography2.png", width: 519, height: 719 },
 ];
 
 export default function Cryptography() {

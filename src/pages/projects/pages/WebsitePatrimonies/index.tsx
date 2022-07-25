@@ -4,8 +4,10 @@ import HeaderProject from "../../../../components/HeaderProject";
 import Carousel from "../../components/Carousel";
 
 const images = [
-  { url: "/projects/Criptografia1.png", width: 558, height: 502 },
-  { url: "/projects/Criptografia2.png", width: 556, height: 500 },
+  { url: "/projects/WebsitePatrimony1.png", width: 300, height: 530 },
+  { url: "/projects/WebsitePatrimony2.png", width: 300, height: 530 },
+  { url: "/projects/WebsitePatrimony3.png", width: 300, height: 530 },
+  { url: "/projects/WebsitePatrimony4.png", width: 300, height: 530 },
 ];
 
 export default function WebsitePatrimonies() {
@@ -17,9 +19,12 @@ export default function WebsitePatrimonies() {
         elements={
           <>
             <h1>Projeto api patrimonio</h1>
-            <Link href="/projects/patrimonies/home">
-              <h2>Ver site</h2>
-            </Link>
+            <br />
+            <h2>
+              <Link href="/projects/patrimonies/home">
+                <a>Ver site</a>
+              </Link>
+            </h2>
           </>
         }
       />
