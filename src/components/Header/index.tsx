@@ -45,14 +45,14 @@ export default function Header() {
           </Link>
           <Link
             activeClass="active"
-            to="works"
+            to="personalProjects"
             spy={true}
             smooth={true}
             offset={-80}
             duration={500}
             onClick={toggleMenu}
           >
-            Trabalhos
+            Projetos pessoais
           </Link>
           <Link
             activeClass="active"
@@ -65,16 +65,17 @@ export default function Header() {
           >
             Projetos da faculdade
           </Link>
+
           <Link
             activeClass="active"
-            to="personalProjects"
+            to="works"
             spy={true}
             smooth={true}
             offset={-80}
             duration={500}
             onClick={toggleMenu}
           >
-            Projetos pessoais
+            Trabalhos
           </Link>
         </Nav>
       </Container>

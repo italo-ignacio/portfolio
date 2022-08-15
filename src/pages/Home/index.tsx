@@ -11,10 +11,10 @@ const Home = () => {
       <Header />
 
       <About />
-      <Works />
+      <Personal />
 
       <University />
-      <Personal />
+      <Works />
     </>
   );
 };
