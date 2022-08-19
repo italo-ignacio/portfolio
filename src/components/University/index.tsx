@@ -72,7 +72,7 @@ export default function University() {
                 Descrição: Intercafe criada em java para gerenciar uma faculdade
                 relacionando os professores, alunos e diciplinas com MySQL
               </p>
-              <Link href="/projects/interfaceJava">
+              <Link href="/projects/interfaceJavaSql">
                 <a>Ver projeto</a>
               </Link>
             </>

@@ -1,6 +1,6 @@
 import React from "react";
-import WebsitePatrimonies from "../../src/pages/projects/pages/WebsitePatrimonies";
+import ApiPatrimonies from "../../src/pages/projects/pages/ApiPatrimonies";
 
 export default function websitePatrimonies() {
-  return <WebsitePatrimonies />;
+  return <ApiPatrimonies />;
 }

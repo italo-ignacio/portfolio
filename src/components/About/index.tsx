@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { ContainerAbout, Container, ContainerImage } from "./styled";
 
 export default function About() {
@@ -30,15 +29,6 @@ export default function About() {
           </a>
         </p>
       </ContainerAbout>
-
-      <ContainerImage>
-        <Image
-          src="/avatar.png"
-          alt="Picture of the author"
-          width={420}
-          height={420}
-        />
-      </ContainerImage>
     </Container>
   );
 }

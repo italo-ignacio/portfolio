@@ -10,7 +10,7 @@ export const Container = styled.header`
   align-items: center;
   position: fixed;
 
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     padding-left: 1.3rem;
     padding-right: 1.3rem;
     display: grid;
@@ -22,7 +22,7 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled.div`
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     display: grid;
     grid-area: logo;
   }
@@ -41,7 +41,7 @@ export const MenuContent = styled.div`
   overflow: hidden;
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     display: flex;
     align-items: center;
     padding-top: 0.5rem;
@@ -91,7 +91,7 @@ export const Nav = styled.nav<StyledNavProps>`
     width: 70%;
     left: 15%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     display: ${({ show }) => (show ? "block" : "none")};
     position: fixed;
     z-index: 4;
@@ -145,7 +145,7 @@ export const Nav2 = styled.nav`
     width: 70%;
     left: 15%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     grid-area: tel;
     padding-right: 3rem;
     padding-top: 0.5rem;

@@ -6,8 +6,6 @@ import {
 } from "../../config/colors";
 
 export const Container = styled.section`
-  display: grid;
-  grid-template-columns: 60% 40%;
   min-height: 50vh;
   background-color: ${secondaryDarkColor};
   padding-top: 3rem;
@@ -27,9 +25,10 @@ export const ContainerAbout = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-left: 20%;
-  margin-right: 10%;
-  max-width: 30rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60%;
   gap: 2rem;
   h2 {
     font-size: 32px;

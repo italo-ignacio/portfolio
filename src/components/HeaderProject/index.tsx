@@ -21,7 +21,7 @@ export default function Header() {
         <Logo>
           <Link href="/">
             <a>
-              <Image src="/avatar.png" width="60px" height="60px" alt="Logo" />
+              <Image src="/avatar.jpg" width="60px" height="60px" alt="Logo" />
             </a>
           </Link>
         </Logo>
@@ -29,15 +29,16 @@ export default function Header() {
           <Link href="/#top">
             <a>Sobre mim</a>
           </Link>
-          <Link href="/#works">
-            <a>Trabalhos</a>
+          <Link href="/#personalProjects">
+            <a>Projetos pessoais</a>
           </Link>
           <Link href="/#universityProjects">
             <a>Projetos da faculdade</a>
           </Link>
-          <Link href="/#personalProjects">
-            <a>Projetos pessoais</a>
+          <Link href="/#works">
+            <a>Trabalhos</a>
           </Link>
+
           <Link href="/">
             <a>Voltar</a>
           </Link>

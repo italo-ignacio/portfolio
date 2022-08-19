@@ -28,7 +28,7 @@ export default function Header() {
             duration={500}
             onClick={toggleMenu}
           >
-            <Image src="/avatar.png" width="60px" height="60px" alt="Logo" />
+            <Image src="/avatar.jpg" width="60px" height="60px" alt="Logo" />
           </Link>
         </Logo>
         <Nav show={show}>

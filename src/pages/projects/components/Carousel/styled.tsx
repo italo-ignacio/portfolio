@@ -16,8 +16,15 @@ export const Container = styled.div`
   max-width: 90%;
   border-top: 6rem solid ${primaryDarkColor};
   border-bottom: 8rem solid ${primaryDarkColor};
-  background-color: ${secondaryDarkColor};
+  background-color: rgb(0, 30, 67);
 
+  .des {
+    display: flex;
+    flex-direction: column;
+    th {
+      font-size: 1.2rem;
+    }
+  }
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
