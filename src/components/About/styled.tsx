@@ -13,9 +13,11 @@ export const Container = styled.section`
   margin-left: 5%;
   max-width: 90%;
   border-top: 8rem solid ${primaryDarkColor};
-
+  display: grid;
+  grid-template-columns: 65% 35%;
   @media (max-width: 768px) {
     display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
   }
@@ -28,7 +30,7 @@ export const ContainerAbout = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  max-width: 60%;
+  max-width: 80%;
   gap: 2rem;
   h2 {
     font-size: 32px;
@@ -38,16 +40,18 @@ export const ContainerAbout = styled.div`
     text-decoration: underline;
     font-size: 16px;
   }
-  @media (max-width: 768px) {
-    justify-content: left;
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 80%;
-  }
 `;
 
-export const ContainerImage = styled.div`
+export const ContainerHab = styled.div`
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  h4 {
+    margin-bottom: 5px;
+  }
+
   @media (max-width: 768px) {
-    display: none;
+    margin-top: 2rem;
   }
 `;

@@ -8,6 +8,12 @@ export const PrimaryContainer = styled.div`
   margin: 30px auto;
   background: white;
   border-radius: 9px;
+
+  @media (max-width: 875px) {
+    label {
+      min-width: 100%;
+    }
+  }
 `;
 
 export const SecondaryContainer = styled.div`
@@ -36,6 +42,15 @@ export const PatrimonyContainer = styled.div`
   background-color: ${secondaryDarkColor};
   word-break: keep-all;
   font-weight: bold;
+
+  @media (max-width: 875px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label {
+      min-width: 100%;
+    }
+  }
 `;
 
 export const PatrymonyImage = styled.div`
@@ -44,6 +59,16 @@ export const PatrymonyImage = styled.div`
   img {
     max-width: 250px;
     max-height: 250px;
+  }
+  @media (max-width: 875px) {
+    text-align: center;
+  }
+  @media (max-width: 310px) {
+    text-align: center;
+    img {
+      max-width: 150px;
+      max-height: 150px;
+    }
   }
 `;
 export const PatrymonyName = styled.div`
@@ -74,7 +99,7 @@ export const PatrymonyCod = styled.div`
     border-radius: 5px;
     padding: 5px;
     min-height: 70%;
-    min-width: 300px;
+    min-width: 100%;
   }
 `;
 export const PatrymonyOwner = styled.div`

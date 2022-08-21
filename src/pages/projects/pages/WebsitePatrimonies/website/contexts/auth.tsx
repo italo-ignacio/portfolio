@@ -5,89 +5,74 @@ import { toast } from "react-toastify";
 
 interface UserContext {
   authenticated: boolean;
-  user: any;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    is_admin: boolean;
+  };
   loading: boolean;
   token: string;
-  name: string;
-  isAdmin: boolean;
-  id: string;
-  login: (email: any, password: any) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
   logout: () => void;
-  validate: (
-    token: any,
-    id: any,
-    is_admin: any,
-    email: any
-  ) => Promise<boolean>;
-  changeName: (name: any) => void;
+  validate: (token: string) => Promise<boolean>;
+  valid: () => Promise<boolean>;
 }
 
 export const AuthContext = createContext<UserContext | null>(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(false);
   const [token, setToken] = useState("");
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
   const router = useRouter();
 
-  const validate = async (token, id, is_admin, email) => {
+  const validate = async (token: string) => {
     try {
-      await axios.post(
-        "/user/validate",
-        { id, is_admin, email },
-        { headers: { Authorization: `Bearer ${token}` } }
+      const response = await axios.post(
+        "/api/data/user/validate",
+        {},
+        { headers: { authorization: `Bearer ${token}` } }
       );
+      setUser(response.data);
+      setToken(token);
       return true;
     } catch (e) {
-      localStorage.removeItem("user");
       localStorage.removeItem("token");
       setUser(null);
       setToken("");
-      setName("");
-      setIsAdmin(false);
-      setId("");
       return false;
     }
   };
 
-  useEffect(() => {
-    const recoverdUser = localStorage.getItem("user");
-    const recoverdEmail = localStorage.getItem("email");
+  const valid = async () => {
+    setLoading(true);
     const recoverdToken = localStorage.getItem("token");
-    const userr = JSON.parse(recoverdUser);
-    if (recoverdUser) {
-      setUser(userr);
-      setName(userr.name);
-      setIsAdmin(userr.is_admin);
-      setId(userr.id);
-      if (recoverdToken) {
+    if (recoverdToken) {
+      try {
+        const response = await axios.post(
+          "/api/data/user/validate",
+          {},
+          { headers: { authorization: `Bearer ${recoverdToken}` } }
+        );
+        setUser(response.data);
         setToken(recoverdToken);
-        validate(recoverdToken, userr.id, userr.is_admin, recoverdEmail);
-      } else {
+        setLoading(false);
+        return true;
+      } catch (e) {
+        localStorage.removeItem("token");
         setUser(null);
-        setName("");
-        setIsAdmin(false);
-        setId("");
         setToken("");
+        setLoading(false);
+        return false;
       }
-    } else {
-      setUser(null);
-      setName("");
-      setIsAdmin(false);
-      setId("");
-      setToken("");
     }
+  };
 
-    setLoading(false);
-  }, []);
-
-  const login = async (email, password) => {
+  const login = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const response = await axios.post("/user/login", {
+      const response = await axios.post("/api/data/user/login", {
         email,
         password,
       });
@@ -96,57 +81,42 @@ export const AuthProvider = ({ children }) => {
 
       setUser(loggedUser);
       setToken(token);
-      setName(loggedUser.name);
-      setIsAdmin(loggedUser.is_admin);
-      setId(loggedUser.id);
-      localStorage.setItem("user", JSON.stringify(loggedUser));
       localStorage.setItem("token", token);
-      localStorage.setItem("email", email);
 
       toast.success("Login realizado com sucesso");
 
-      router.push(`/projects/patrimonies/home`);
+      router.push("/projects/patrimonies/home");
     } catch (er) {
       switch (er.response.data.msg) {
-        case "User not found":
-          toast.error("Usuário não encontrado");
-          break;
         case "Invalid password":
           toast.error("Senha inválida");
           break;
+        case "User not found":
+          toast.error("Usuário não encontrado");
+          break;
         default:
-          toast.error("Erro ao fazer login");
           break;
       }
-      setLoading(false);
     }
+    setLoading(false);
   };
   const logout = () => {
-    localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
     setToken("");
-    setName("");
-    setIsAdmin(false);
-    setId("");
   };
-  const changeName = (name) => {
-    setName(name);
-  };
+
   return (
     <AuthContext.Provider
       value={{
-        authenticated: !!user,
+        authenticated: user != null ? true : false,
         user,
         loading,
         token,
-        name,
-        isAdmin,
-        id,
         login,
         logout,
+        valid,
         validate,
-        changeName,
       }}
     >
       {children}

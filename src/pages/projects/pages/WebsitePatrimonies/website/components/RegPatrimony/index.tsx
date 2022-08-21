@@ -6,51 +6,50 @@ import Loading from "../../components/Loading";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
-export default function RegPatrimony({ token }) {
+interface UserInterface {
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    is_admin: boolean;
+  };
+}
+export default function RegPatrimony({ user }: UserInterface) {
   const [name, setName] = useState("");
   const [cod, setCode] = useState("");
   const [showCadPatrimony, setShowCadPatrimony] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
 
     let formErros = false;
     if (name.length < 2 || name.length > 255) {
       formErros = true;
-      console.log("Nome deve ter entre 2 e 255 caracteres");
+      toast.error("Nome deve ter entre 2 e 255 caracteres");
     }
     if (cod.length < 1 || cod.length > 10) {
       formErros = true;
-      console.log("Código deve ter entre 1 e 10 caracteres");
+      toast.error("Código deve ter entre 1 e 10 caracteres");
     }
     if (formErros) {
       return;
     }
     try {
       setLoading(true);
-      const response = await axios.post(
-        "/patrimony",
-        {
-          name,
-          cod,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const response = await axios.post("/api/data/patrimony", {
+        name,
+        cod,
+        owner: user.name,
+        userId: user.id,
+      });
 
       router.replace(
         `/projects/patrimonies/updatePatrimony/${response.data.id}`
       );
     } catch (er) {
-      switch (er.response.data.msg) {
-        case "Code already exists":
-          toast.error("Código ja existe");
-          break;
-        default:
-          toast.error("Erro ao cadastrar");
-          break;
-      }
+      console.log(er);
       setLoading(false);
     }
   }

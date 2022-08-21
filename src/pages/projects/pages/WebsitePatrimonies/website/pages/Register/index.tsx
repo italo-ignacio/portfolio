@@ -9,16 +9,7 @@ import { AuthContext } from "../../contexts/auth";
 import Loading from "../../components/Loading";
 
 export default function Register() {
-  const {
-    authenticated,
-    validate,
-    changeName,
-    token,
-    logout,
-    id,
-    isAdmin,
-    name: nameUser,
-  } = useContext(AuthContext);
+  const { authenticated, token, logout, user, valid } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,17 +17,17 @@ export default function Register() {
   const router = useRouter();
 
   useEffect(() => {
+    valid();
     if (!authenticated) {
       setLoading(false);
       return;
     }
-    const localEmail = localStorage.getItem("email");
-    setEmail(localEmail);
-    setName(nameUser);
+    setEmail(user.email);
+    setName(user.name);
     setLoading(false);
-  }, [authenticated, nameUser]);
+  }, [authenticated]);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     let formErros = false;
     if (name.length < 2 || name.length > 255) {
@@ -54,58 +45,51 @@ export default function Register() {
       }
     }
     if (formErros) return;
-
-    try {
-      if (authenticated) {
+    console.log(authenticated);
+    if (authenticated) {
+      try {
         setLoading(true);
-        try {
-          await axios.put(
-            `/user/${id}`,
-            {
-              name,
-              email,
-              password: password || "",
-            },
-            { headers: { Authorization: `Bearer ${token}` } }
-          );
+        await axios.put(
+          `/api/data/user/${user.id}`,
+          {
+            name,
+            email,
+            password: password != "" ? password : null,
+          },
+          { headers: { authorization: `Bearer ${token}` } }
+        );
+        logout();
+
+        setTimeout(() => {
           toast.success("Conta atualizada com sucesso");
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ name, id, is_admin: isAdmin })
-          );
-          localStorage.setItem("email", email);
-          logout();
-
-          setTimeout(() => {
-            toast.warning("Refaça o login para validar seu token");
-          }, 500);
-          router.push("/projects/patrimonies/login");
-        } catch (error) {
-          logout();
-
-          setTimeout(() => {
-            toast.warning("Refaça o login para validar seu token");
-          }, 500);
-          router.push("/projects/patrimonies/login");
-        }
-      } else {
+          toast.warning("Refaça o login para validar seu token");
+        }, 100);
+        router.push("/projects/patrimonies/login");
+      } catch (error) {
+        setTimeout(() => {
+          toast.warning("Refaça o login para validar seu token");
+        }, 500);
+        setLoading(false);
+      }
+    } else {
+      try {
         setLoading(true);
-        await axios.post("/user", {
+        await axios.post("/api/data/user", {
           name,
           email,
           password,
         });
 
-        localStorage.setItem("email", email);
         setTimeout(() => {
           toast.success("Conta criada com sucesso");
           toast.warning("Faça o login para validar seu token");
-        }, 500);
+        }, 100);
+        setLoading(false);
         router.push("/projects/patrimonies/login");
+      } catch (er) {
+        toast.error("E-mail já existe");
+        setLoading(false);
       }
-    } catch (er) {
-      toast.error("E-mail já existe");
-      setLoading(false);
     }
   }
   if (loading) {

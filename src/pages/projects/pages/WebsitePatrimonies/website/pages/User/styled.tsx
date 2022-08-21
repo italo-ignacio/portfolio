@@ -14,6 +14,11 @@ export const PrimaryContainer = styled.div`
   display: grid;
   grid-template-columns: 70% 30%;
   grid-template-areas: "user edit";
+
+  @media (max-width: 690px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const RegPatrimonyContainer = styled.div`
@@ -21,6 +26,9 @@ export const RegPatrimonyContainer = styled.div`
   text-align: center;
   .reg_container {
     margin: 10px auto;
+  }
+  @media (max-width: 690px) {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -109,6 +117,10 @@ export const PatrimoniesContainer = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   margin-top: 50px;
+  @media (max-width: 999px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const SearchPatrimonyContainer = styled.div`
@@ -137,7 +149,7 @@ export const SearchPatrimonyContainer = styled.div`
   }
   .btn_backspace {
     position: absolute;
-    top: 23px;
+    top: 28px;
     height: 39px;
     padding: 8px 10px;
     right: 0;
@@ -145,5 +157,8 @@ export const SearchPatrimonyContainer = styled.div`
     border: none;
     background: transparent;
     color: ${primaryColor};
+  }
+  @media (max-width: 999px) {
+    max-width: 90%;
   }
 `;

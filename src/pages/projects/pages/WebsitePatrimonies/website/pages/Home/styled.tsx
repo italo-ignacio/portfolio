@@ -20,6 +20,7 @@ export const PrimaryContainer = styled.div`
   @media (max-width: 990px) {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -29,8 +30,8 @@ export const SecondaryContainer = styled.div`
   grid-template-columns: 50% 50%;
   max-height: 50%;
   @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `;
 

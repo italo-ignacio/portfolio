@@ -10,18 +10,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, loading } = useContext(AuthContext);
-  const [loading2, setLoading] = useState(true);
 
-  useEffect(() => {
-    const localEmail = localStorage.getItem("email");
-    if (localEmail) {
-      setEmail(localEmail);
-    }
-
-    setLoading(false);
-  }, []);
-
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     let formErros = false;
 
@@ -31,19 +21,15 @@ export default function Login() {
     }
     if (password.length < 6 || password.length > 50) {
       formErros = true;
-      toast.error("Senha inválida");
+      toast.error("Senha precisa ter entre 6 e 50 caracteres");
     }
     if (formErros) return;
     login(email, password);
   }
-  if (loading) {
-    return <Loading />;
-  }
-  if (loading2) {
-    return <Loading />;
-  }
+
   return (
     <>
+      {loading ? <Loading /> : <></>}
       <Container>
         <h1>Login</h1>
         <Form onSubmit={handleSubmit}>

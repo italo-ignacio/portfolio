@@ -21,6 +21,11 @@ export const PatrimonyContainer = styled.div`
   padding: 10px;
   background-color: ${secondaryDarkColor};
   word-break: break-all;
+  @media (max-width: 990px) {
+    grid-template-columns: 90px auto auto;
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 export const PatrymonyImage = styled.div`
@@ -28,6 +33,12 @@ export const PatrymonyImage = styled.div`
   img {
     max-width: 140px;
     max-height: 140px;
+  }
+  @media (max-width: 990px) {
+    img {
+      max-width: 80px;
+      max-height: 80px;
+    }
   }
 `;
 export const PatrymonyName = styled.div`

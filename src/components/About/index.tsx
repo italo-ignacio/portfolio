@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerAbout, Container, ContainerImage } from "./styled";
+import { ContainerAbout, Container, ContainerHab } from "./styled";
 
 export default function About() {
   return (
@@ -29,6 +29,24 @@ export default function About() {
           </a>
         </p>
       </ContainerAbout>
+      <ContainerHab>
+        <h2>Habilidades</h2>
+        <br />
+        <h4>NextJs </h4>
+        <h4>React </h4>
+        <h4>SQL </h4>
+        <h4>GitHub </h4>
+        <h4>HTML </h4>
+        <h4>CSS </h4>
+        <h4>Python </h4>
+        <h4>NODE.JS </h4>
+        <h4>JavaScript </h4>
+        <h4>TypeScript </h4>
+        <h4>API </h4>
+        <h4>JAVA </h4>
+        <h4>Spring </h4>
+        <h4>Orientação a objetos </h4>
+      </ContainerHab>
     </Container>
   );
 }

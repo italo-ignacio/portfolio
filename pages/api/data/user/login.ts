@@ -1,8 +1,12 @@
 import jwt from "jsonwebtoken";
-import { usersRepo } from "../../../src/database/helpers/users-repo";
 import bcrypt from "bcrypt";
+import { getUserEmail } from "../../../../lib/db";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { method } = req;
 
   switch (method) {
@@ -12,12 +16,12 @@ export default async function handler(req, res) {
         if (!email || !password) {
           return res.status(400).json({ error: true, msg: "Invalid data" });
         }
-        const user = usersRepo.find((x) => x.email === email);
+        const user = await getUserEmail(email);
         if (!user) {
           return res.status(400).json({ error: true, msg: "User not found" });
         }
 
-        if (!(await bcrypt.compare(password.toString(), user.password))) {
+        if (!(await bcrypt.compare(password.toString(), user.password_hash))) {
           return res.status(400).json({ error: true, msg: "Invalid password" });
         }
 
@@ -30,7 +34,7 @@ export default async function handler(req, res) {
           }
         );
 
-        res.status(200).json({ token, user: { name, id, is_admin } });
+        res.status(200).json({ token, user: { id, name, email, is_admin } });
       } catch (error) {
         res.status(400).json({ error: true, msg: "User not found" });
       }

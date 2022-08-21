@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { FaCircle, FaSignOutAlt, FaHome } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 
 import { Nav } from "./styled";
 import { AuthContext } from "../../contexts/auth";
 import Link from "next/link";
 
 export default function Header() {
-  const { logout, authenticated, name, id } = useContext(AuthContext);
+  const { logout, authenticated, user } = useContext(AuthContext);
 
   const hadleLogout = () => {
     logout();
@@ -27,13 +27,13 @@ export default function Header() {
             <Link href="/projects/patrimonies/login">Login</Link>
           )}
           {authenticated ? (
-            <Link href={`/projects/patrimonies/user/${id}`}>Perfil</Link>
+            <Link href={`/projects/patrimonies/user/${user.id}`}>Perfil</Link>
           ) : (
             <></>
           )}
 
           {authenticated ? (
-            <Link href="/projects/patrimonies/register">{name}</Link>
+            <Link href="/projects/patrimonies/register">{user.name}</Link>
           ) : (
             <></>
           )}

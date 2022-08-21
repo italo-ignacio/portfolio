@@ -49,4 +49,8 @@ export const Container = styled.section`
   padding: 30px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;

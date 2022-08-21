@@ -28,54 +28,56 @@ export default function User() {
   const router = useRouter();
   const { query } = useRouter();
   const id = query.id;
-  const { name: getOwner, authenticated, token } = useContext(AuthContext);
+  const { user, authenticated, token, valid } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [patrimony, setPatrimony] = useState("");
   const [patrimonies, setPatrimonies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isOwner, setIsOwner] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [searchPatrimony, setSearchPatrimony] = useState("");
   const lowerSearchPatrimony = searchPatrimony.toLowerCase();
 
   useEffect(() => {
     const getData = async () => {
+      await valid();
       try {
-        const { data } = await axios.get(`/userPatrimonies/${id}`);
+        if (id != undefined) {
+          const { data } = await axios.get(`/api/data/user/${id}`);
 
-        setName(data.name);
-        setEmail(data.email);
-        setPatrimony(data.qtd);
-        setPatrimonies(data.patrimonies);
-
-        if (data.name === getOwner) {
-          setIsOwner(true);
+          setName(data.name);
+          setEmail(data.email);
+          setPatrimonies(data.patrimony);
+          setLoading(false);
         }
       } catch (er) {
         toast.error("Usuario não encontrado");
+        setLoading(false);
         router.push("/projects/patrimonies/home");
       }
     };
     getData();
-    setLoading(false);
-  }, [id, router, getOwner]);
+  }, [id, router]);
+
   const filteredPatrimonies = patrimonies.filter((patrimony) =>
     patrimony.name.toLowerCase().includes(lowerSearchPatrimony)
   );
 
-  if (loading) {
-    return <Loading />;
-  }
   return (
     <>
+      {loading ? <Loading /> : <></>}
       <GeneralContainer>
         <PrimaryContainer>
-          {isOwner ? (
-            <SecondaryContainer>
-              <Link href={"/projects/patrimonies/register"}>
-                <FaEdit fontSize={25} className="bt" />
-              </Link>
-            </SecondaryContainer>
+          {user != null ? (
+            user.id == Number(id) ? (
+              <>
+                <SecondaryContainer>
+                  <Link href={"/projects/patrimonies/register"}>
+                    <FaEdit fontSize={25} className="bt" />
+                  </Link>
+                </SecondaryContainer>
+              </>
+            ) : (
+              <></>
+            )
           ) : (
             <></>
           )}
@@ -90,13 +92,19 @@ export default function User() {
             </UserEmail>
             <UserPatrimony>
               Patrimonios:
-              <label>{patrimony}</label>
+              <label>{patrimonies.length.toString()}</label>
             </UserPatrimony>
           </UserContainer>
-          {isOwner ? (
-            <RegPatrimonyContainer>
-              {authenticated ? <RegPatrimony token={token} /> : <></>}
-            </RegPatrimonyContainer>
+          {user != null ? (
+            user.id == Number(id) ? (
+              <>
+                <RegPatrimonyContainer>
+                  {authenticated ? <RegPatrimony user={user} /> : <></>}
+                </RegPatrimonyContainer>
+              </>
+            ) : (
+              <></>
+            )
           ) : (
             <></>
           )}

@@ -21,9 +21,8 @@ import Loading from "../../components/Loading";
 import Link from "next/link";
 
 export default function Home() {
-  const { loading, authenticated, token } = useContext(AuthContext);
+  const { user, authenticated, valid } = useContext(AuthContext);
   const [loadingPage, setLoadingPage] = useState(true);
-  const [warning, setWarning] = useState(false);
   const [patrimonies, setPatrimonies] = useState([]);
   const [users, setUsers] = useState([]);
   const { query } = useRouter();
@@ -36,11 +35,17 @@ export default function Home() {
 
   useEffect(() => {
     async function List() {
-      const responsePatrimonies = await axios.get(`/patrimony`);
-      const responseUsers = await axios.get("/user");
-      setPatrimonies(responsePatrimonies.data);
-      setTotalPatrimonies(responsePatrimonies.data.length);
-      setUsers(responseUsers.data);
+      try {
+        const responsePatrimonies = await axios.get(`/api/data/patrimony`);
+        const responseUsers = await axios.get("/api/data/user");
+        setPatrimonies(responsePatrimonies.data);
+        setTotalPatrimonies(responsePatrimonies.data.length);
+        setUsers(responseUsers.data);
+        await valid();
+      } catch (error) {
+        console.log(error);
+      }
+
       setLoadingPage(false);
     }
     List();
@@ -57,44 +62,12 @@ export default function Home() {
       patrimonies.userId.toString() === query.userId?.toString() || 0
   );
 
-  if (loading) {
-    return <Loading />;
-  }
-  if (loadingPage) {
-    return <Loading />;
-  }
-
   return (
     <>
+      {loadingPage ? <Loading /> : <></>}
       <GeneralContainer>
-        <button
-          onClick={() => {
-            setWarning(!warning);
-          }}
-        >
-          <h2>Aviso</h2>
-        </button>
-        {warning ? (
-          <>
-            <br />
-            <br />
-            <h3>
-              O banco de dados esta fixo, então não é possivel cadastrar novos
-              itens.
-            </h3>
-            <br />
-            <h4>Caso queira fazer login</h4>
-            <br />
-            <h3>E-mail: italo@gmail.com</h3>
-            <h3>Senha: 123456</h3>
-            <br />
-          </>
-        ) : (
-          <></>
-        )}
-
         <RegPatrimonyContainer>
-          {authenticated ? <RegPatrimony token={token} /> : <></>}
+          {authenticated ? <RegPatrimony user={user} /> : <></>}
         </RegPatrimonyContainer>
         <br />
         <PrimaryContainer>
@@ -187,7 +160,7 @@ export default function Home() {
                 key={user.id}
                 id={user.id}
                 name={user.name}
-                patrimonies={user.patrimonies}
+                patrimonies={user.patrimony.length}
                 isSelected={
                   idSeached.toString() === user.id.toString() ? true : false
                 }

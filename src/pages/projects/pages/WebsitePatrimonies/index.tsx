@@ -52,7 +52,9 @@ export default function WebsitePatrimonies() {
             <br />
             <div className="des">
               <th>React</th>
-              <th>styled components</th>
+              <th>Styled components</th>
+              <th>Prisma</th>
+              <th>Planetscale</th>
             </div>
           </>
         }
