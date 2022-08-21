@@ -23,6 +23,11 @@ export const SecondaryContainer = styled.div`
   .bt {
     cursor: pointer;
   }
+
+  a {
+    margin-left: 1rem;
+    color: black;
+  }
 `;
 
 export const PatrimonyContainer = styled.div`

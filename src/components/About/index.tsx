@@ -36,13 +36,15 @@ export default function About() {
         <h4>React </h4>
         <h4>SQL </h4>
         <h4>GitHub </h4>
-        <h4>HTML </h4>
-        <h4>CSS </h4>
-        <h4>Python </h4>
-        <h4>NODE.JS </h4>
         <h4>JavaScript </h4>
         <h4>TypeScript </h4>
+        <h4>Python </h4>
+        <h4>NODE.JS </h4>
         <h4>API </h4>
+        <h4>Prisma </h4>
+        <h4>PlanetScale </h4>
+        <h4>HTML </h4>
+        <h4>CSS </h4>
         <h4>JAVA </h4>
         <h4>Spring </h4>
         <h4>Orientação a objetos </h4>

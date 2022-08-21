@@ -1,5 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { deleteUser, getUser, updateUser } from "../../../../lib/db";
+import {
+  deleteUser,
+  getUser,
+  updateOwner,
+  updateUser,
+} from "../../../../lib/db";
 import bcrypt from "bcrypt";
 
 export default async function handler(
@@ -32,7 +37,7 @@ export default async function handler(
 
     case "PUT":
       try {
-        const { name, email, password } = req.body;
+        const { name, email, password, oldName } = req.body;
         if (password != null) {
           const passwordHash = bcrypt.hashSync(password, 10);
           const data = {
@@ -41,6 +46,9 @@ export default async function handler(
             password_hash: passwordHash,
           };
           await updateUser(Number(id), data);
+          if (oldName !== name) {
+            await updateOwner(Number(id), name);
+          }
         } else {
           const data = {
             name: name,
@@ -48,6 +56,9 @@ export default async function handler(
             password_hash: undefined,
           };
           await updateUser(Number(id), data);
+          if (oldName !== name) {
+            await updateOwner(Number(id), name);
+          }
         }
 
         res.status(200).json({ message: "Updated successfully" });

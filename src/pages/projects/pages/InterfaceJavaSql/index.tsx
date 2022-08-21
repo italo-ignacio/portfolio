@@ -22,8 +22,8 @@ export default function InterfaceJavaSql() {
             <br />
             <br />
             <h3>
-              Progama em JAVA com MySQL para gerenciar uma faculdade com todos
-              alunos, professores, materias e cursos
+              Progama em JAVA com MySQL para gerenciar os alunos, professores,
+              materias e cursos de uma faculdade
             </h3>
             <br />
             <br />

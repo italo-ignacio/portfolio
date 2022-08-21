@@ -7,7 +7,6 @@ const images = [
   { url: "/projects/WebsitePatrimony1.png", width: 300, height: 530 },
   { url: "/projects/WebsitePatrimony2.png", width: 300, height: 530 },
   { url: "/projects/WebsitePatrimony3.png", width: 300, height: 530 },
-  { url: "/projects/WebsitePatrimony4.png", width: 300, height: 530 },
 ];
 
 export default function WebsitePatrimonies() {
@@ -53,8 +52,6 @@ export default function WebsitePatrimonies() {
             <div className="des">
               <th>React</th>
               <th>Styled components</th>
-              <th>Prisma</th>
-              <th>Planetscale</th>
             </div>
           </>
         }

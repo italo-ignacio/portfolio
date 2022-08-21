@@ -57,11 +57,10 @@ export default function RegPatrimony({ user }: UserInterface) {
   const handleclick = () => {
     setShowCadPatrimony(!showCadPatrimony);
   };
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <>
+      {loading ? <Loading /> : <></>}
       <button onClick={handleclick} className="btn_reg">
         Cadastrar patrimônio
       </button>

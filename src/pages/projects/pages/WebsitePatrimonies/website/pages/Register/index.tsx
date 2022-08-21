@@ -45,7 +45,6 @@ export default function Register() {
       }
     }
     if (formErros) return;
-    console.log(authenticated);
     if (authenticated) {
       try {
         setLoading(true);
@@ -55,6 +54,7 @@ export default function Register() {
             name,
             email,
             password: password != "" ? password : null,
+            oldName: user.name,
           },
           { headers: { authorization: `Bearer ${token}` } }
         );
@@ -92,11 +92,10 @@ export default function Register() {
       }
     }
   }
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <>
+      {loading ? <Loading /> : <></>}
       <Container>
         <h1>{authenticated ? "Editar dados" : "Registrar"}</h1>
         <Form onSubmit={handleSubmit}>

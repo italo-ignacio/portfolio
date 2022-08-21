@@ -75,7 +75,7 @@ export default function UpdatePatrimony() {
       toast.success("Patrimônio atualizado com sucesso");
       setLoading(false);
     } catch (er) {
-      console.log(er);
+      toast.success("Erro ao atualizar");
       setLoading(false);
     }
   }

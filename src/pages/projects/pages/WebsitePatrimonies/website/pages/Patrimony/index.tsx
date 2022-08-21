@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import {
   PatrimonyContainer,
@@ -18,13 +18,15 @@ import { FaEdit } from "react-icons/fa";
 import { AuthContext } from "../../contexts/auth";
 import Image from "next/image";
 import Link from "next/link";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { GiConfirmed } from "react-icons/gi";
 
 export default function Patrimony() {
   const router = useRouter();
   const { query } = useRouter();
   const id = query.id;
 
-  const { user, valid } = useContext(AuthContext);
+  const { user, valid, token } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [cod, setCod] = useState("");
   const [note, setNote] = useState("");
@@ -33,6 +35,7 @@ export default function Patrimony() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(false);
+  const [del, setDel] = useState(false);
   const [userId, setUserId] = useState();
 
   useEffect(() => {
@@ -61,9 +64,22 @@ export default function Patrimony() {
     getData();
   }, [id, router]);
 
-  if (loading) {
-    return;
-  }
+  const handleDelete = async () => {
+    try {
+      setLoading(true);
+      await axios.delete(`/api/data/patrimony/${id}`, {
+        headers: { authorization: `Bearer ${token}` },
+      });
+      setLoading(false);
+      setTimeout(() => {
+        toast.success("Patrimônio deletado com sucesso");
+      }, 100);
+      Router.push(`/projects/patrimonies/user/${user.id}`);
+    } catch (er) {
+      toast.success("Erro ao deletar");
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -79,6 +95,21 @@ export default function Patrimony() {
                 <Link href={`/projects/patrimonies/updatePatrimony/${id}`}>
                   <FaEdit fontSize={25} className="bt" />
                 </Link>
+                <a>
+                  {del ? (
+                    <GiConfirmed
+                      fontSize={25}
+                      className="bt"
+                      onClick={handleDelete}
+                    />
+                  ) : (
+                    <RiDeleteBin6Line
+                      fontSize={25}
+                      className="bt"
+                      onClick={() => setDel(true)}
+                    />
+                  )}
+                </a>
               </SecondaryContainer>
             ) : (
               <></>

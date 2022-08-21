@@ -24,6 +24,7 @@ export const ContainerWorks = styled.div`
   text-align: center;
   justify-content: center;
   margin-top: 1rem;
+  margin-bottom: 5rem;
   @media (max-width: 768px) {
     flex-direction: column;
   }

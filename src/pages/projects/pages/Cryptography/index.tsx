@@ -23,7 +23,8 @@ export default function Cryptography() {
             <br />
             <h3></h3>
             <h2>
-              Programa para criptografar e descriptografar qualquer mensagens
+              Programa para criptografar e descriptografar qualquer mensagem ou
+              palavra
             </h2>
             <br />
             <br />

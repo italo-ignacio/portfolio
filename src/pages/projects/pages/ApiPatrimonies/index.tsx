@@ -15,7 +15,7 @@ export default function ApiPatrimonies() {
         images={images}
         elements={
           <>
-            <h1>Projeto api patrimonio</h1>
+            <h1>Projeto API de patrimônios</h1>
             <br />
             <br />
             <h3>

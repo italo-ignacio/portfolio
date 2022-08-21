@@ -121,6 +121,16 @@ export async function updatePatrimony(id: number, data: Patrimony) {
   });
 }
 
+export async function updateOwner(userId: number, owner: string) {
+  await prisma.patrimony.updateMany({
+    where: {
+      userId,
+    },
+    data: {
+      owner,
+    },
+  });
+}
 export async function deletePatrimony(id: number) {
   await prisma.patrimony.delete({
     where: {
