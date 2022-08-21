@@ -70,7 +70,7 @@ export default function UpdatePatrimony() {
           details: details != "" ? details : null,
           url: url != "" ? url : null,
         },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { authorization: `Bearer ${token}` } }
       );
       toast.success("Patrimônio atualizado com sucesso");
       setLoading(false);
