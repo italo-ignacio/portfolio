@@ -80,12 +80,9 @@ export default function UpdatePatrimony() {
     }
   }
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <>
+      {loading ? <Loading /> : <></>}
       {user == null ? (
         <Container>
           <Link href={`/projects/patrimonies/patrimony/${query.id}`}>
