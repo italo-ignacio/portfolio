@@ -28,7 +28,7 @@ export default function User() {
   const router = useRouter();
   const { query } = useRouter();
   const id = query.id;
-  const { user, authenticated, token, valid } = useContext(AuthContext);
+  const { user, authenticated, valid } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [patrimonies, setPatrimonies] = useState([]);

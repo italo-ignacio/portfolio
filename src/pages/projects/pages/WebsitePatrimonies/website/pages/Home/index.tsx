@@ -42,15 +42,13 @@ export default function Home({
   const [totalPatrimonies, setTotalPatrimonies] = useState(0);
 
   useEffect(() => {
-    async function List() {
+    function List() {
       try {
         setPatrimonies(responsePatrimonies);
         setTotalPatrimonies(responsePatrimonies.length);
         setUsers(responseUsers);
-        await valid();
-      } catch (error) {
-        console.log(error);
-      }
+        valid();
+      } catch (error) {}
       setLoadingPage(false);
     }
     List();

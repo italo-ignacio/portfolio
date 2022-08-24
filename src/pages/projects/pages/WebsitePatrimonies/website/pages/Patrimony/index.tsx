@@ -20,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { GiConfirmed } from "react-icons/gi";
+import { Patrimony_ } from "../../../../../../../../lib/db";
 
 export default function Patrimony() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Patrimony() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(false);
   const [del, setDel] = useState(false);
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(0);
 
   useEffect(() => {
     const getData = async () => {
@@ -44,7 +45,7 @@ export default function Patrimony() {
       try {
         if (id != undefined) {
           const response = await axios.get(`/api/data/patrimony/${id}`);
-          const patrimony = response.data;
+          const patrimony = response.data as Patrimony_;
           setName(patrimony.name);
           setCod(patrimony.cod);
           setNote(patrimony.note);

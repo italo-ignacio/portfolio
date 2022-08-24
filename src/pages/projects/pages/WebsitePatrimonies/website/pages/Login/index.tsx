@@ -24,7 +24,7 @@ export default function Login() {
       toast.error("Senha precisa ter entre 6 e 50 caracteres");
     }
     if (formErros) return;
-    login(email, password);
+    await login(email, password);
   }
 
   return (
