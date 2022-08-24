@@ -6,10 +6,10 @@ export interface User {
   email: string;
   password_hash: string;
   is_admin?: boolean;
-  patrimony?: [Patrimony];
+  patrimony?: [Patrimony_];
 }
 
-export interface Patrimony {
+export interface Patrimony_ {
   name: string;
   cod: string;
   note?: string;
@@ -105,14 +105,14 @@ export async function getPatrimony(id: number) {
   return data;
 }
 
-export async function createPatrimony(data: Patrimony) {
+export async function createPatrimony(data: Patrimony_) {
   const patrimony = await prisma.patrimony.create({
     data,
   });
   return patrimony;
 }
 
-export async function updatePatrimony(id: number, data: Patrimony) {
+export async function updatePatrimony(id: number, data: Patrimony_) {
   await prisma.patrimony.update({
     where: {
       id,

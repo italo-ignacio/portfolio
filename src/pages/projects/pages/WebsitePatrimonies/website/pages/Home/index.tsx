@@ -16,11 +16,19 @@ import RegPatrimony from "../../components/RegPatrimony";
 import { AuthContext } from "../../contexts/auth";
 import Patrimony from "../../components/Patrimony";
 import UserList from "../../components/UserList";
-import axios from "../../services/axios";
 import Loading from "../../components/Loading";
 import Link from "next/link";
+import { Patrimony_, User } from "../../../../../../../../lib/db";
 
-export default function Home() {
+interface DataProps {
+  responsePatrimonies: Patrimony_[];
+  responseUsers: User[];
+}
+
+export default function Home({
+  responsePatrimonies,
+  responseUsers,
+}: DataProps) {
   const { user, authenticated, valid } = useContext(AuthContext);
   const [loadingPage, setLoadingPage] = useState(true);
   const [patrimonies, setPatrimonies] = useState([]);
@@ -36,16 +44,13 @@ export default function Home() {
   useEffect(() => {
     async function List() {
       try {
-        const responsePatrimonies = await axios.get(`/api/data/patrimony`);
-        const responseUsers = await axios.get("/api/data/user");
-        setPatrimonies(responsePatrimonies.data);
-        setTotalPatrimonies(responsePatrimonies.data.length);
-        setUsers(responseUsers.data);
+        setPatrimonies(responsePatrimonies);
+        setTotalPatrimonies(responsePatrimonies.length);
+        setUsers(responseUsers);
         await valid();
       } catch (error) {
         console.log(error);
       }
-
       setLoadingPage(false);
     }
     List();
