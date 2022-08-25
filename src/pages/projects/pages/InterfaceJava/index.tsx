@@ -26,7 +26,7 @@ export default function InterfaceJava() {
               <br />
 
               <a
-                href="https://github.com/itilocao/Quiz-Java-Meio-ambiente"
+                href="https://github.com/italo-ignacio/Quiz-Java-Meio-ambiente"
                 target="blank"
               >
                 GitHub do projeto

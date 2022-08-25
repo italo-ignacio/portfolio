@@ -19,7 +19,10 @@ export default function Personal() {
                 projetos
               </p>
               <p></p>
-              <a href="https://github.com/itilocao/portfolio" target="blank">
+              <a
+                href="https://github.com/italo-ignacio/portfolio"
+                target="blank"
+              >
                 Ver projeto no GitHub
               </a>
             </>

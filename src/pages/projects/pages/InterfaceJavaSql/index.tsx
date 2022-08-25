@@ -30,7 +30,7 @@ export default function InterfaceJavaSql() {
             <h2>
               <br />
               <a
-                href="https://github.com/itilocao/Projeto-Faculdade"
+                href="https://github.com/italo-ignacio/Projeto-Faculdade"
                 target="blank"
               >
                 GitHub do projeto

@@ -32,7 +32,7 @@ export default function ApiPatrimonies() {
               <br />
               <br />
               <a
-                href="https://github.com/itilocao/api-patrimonios"
+                href="https://github.com/italo-ignacio/api-patrimonios"
                 target="blank"
               >
                 GitHub do projeto

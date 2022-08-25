@@ -39,7 +39,7 @@ export default function WebsitePatrimonies() {
               <br />
               <br />
               <a
-                href="https://github.com/itilocao/site-patrimonios"
+                href="https://github.com/italo-ignacio/site-patrimonios"
                 target="blank"
               >
                 GitHub do projeto

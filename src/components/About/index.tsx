@@ -24,7 +24,7 @@ export default function About() {
         </p>
         <p>
           Os códigos dos projetos estão no meu{" "}
-          <a href="https://github.com/itilocao" target="blank">
+          <a href="https://github.com/italo-ignacio" target="blank">
             GitHub
           </a>
         </p>

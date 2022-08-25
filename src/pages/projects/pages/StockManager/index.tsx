@@ -26,7 +26,7 @@ export default function StockManager() {
               <br />
 
               <a
-                href="https://github.com/itilocao/gerenciador-python"
+                href="https://github.com/italo-ignacio/gerenciador-python"
                 target="blank"
               >
                 GitHub do projeto

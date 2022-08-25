@@ -34,7 +34,7 @@ export default function Cryptography() {
               <br />
               <br />
               <a
-                href="https://github.com/itilocao/criptografia-python"
+                href="https://github.com/italo-ignacio/criptografia-python"
                 target="blank"
               >
                 GitHub do projeto
